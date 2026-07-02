@@ -1,0 +1,3 @@
+/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/build/CMakeFiles/obs-ar-engine.dir
+/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/build/CMakeFiles/edit_cache.dir
+/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/build/CMakeFiles/rebuild_cache.dir
