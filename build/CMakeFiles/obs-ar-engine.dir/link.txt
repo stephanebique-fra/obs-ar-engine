@@ -1,0 +1,1 @@
+/usr/bin/c++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names "CMakeFiles/obs-ar-engine.dir/src/main.cpp.o" "CMakeFiles/obs-ar-engine.dir/src/Application.cpp.o" "CMakeFiles/obs-ar-engine.dir/src/Window.cpp.o" -o obs-ar-engine  -Wl,-rpath,/opt/homebrew/lib /opt/homebrew/lib/libSDL3.0.dylib
