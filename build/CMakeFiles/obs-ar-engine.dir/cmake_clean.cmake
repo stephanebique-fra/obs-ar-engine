@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/obs-ar-engine.dir/src/Application.cpp.o"
   "CMakeFiles/obs-ar-engine.dir/src/Application.cpp.o.d"
+  "CMakeFiles/obs-ar-engine.dir/src/Camera2D.cpp.o"
+  "CMakeFiles/obs-ar-engine.dir/src/Camera2D.cpp.o.d"
   "CMakeFiles/obs-ar-engine.dir/src/Renderer.cpp.o"
   "CMakeFiles/obs-ar-engine.dir/src/Renderer.cpp.o.d"
   "CMakeFiles/obs-ar-engine.dir/src/Window.cpp.o"

@@ -17,6 +17,13 @@ add_executable(obs-ar-engine
     src/graphics/Image.cpp
     src/graphics/Texture.cpp
     src/Renderer.cpp
+    src/Camera2D.cpp
 )
 
 target_link_libraries(obs-ar-engine PRIVATE SDL3::SDL3)
+
+add_custom_command(TARGET obs-ar-engine POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+    ${CMAKE_SOURCE_DIR}/assets
+    $<TARGET_FILE_DIR:obs-ar-engine>/assets
+)

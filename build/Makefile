@@ -153,6 +153,30 @@ src/Application.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Application.cpp.s
 .PHONY : src/Application.cpp.s
 
+src/Camera2D.o: src/Camera2D.cpp.o
+.PHONY : src/Camera2D.o
+
+# target to build an object file
+src/Camera2D.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Camera2D.cpp.o
+.PHONY : src/Camera2D.cpp.o
+
+src/Camera2D.i: src/Camera2D.cpp.i
+.PHONY : src/Camera2D.i
+
+# target to preprocess a source file
+src/Camera2D.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Camera2D.cpp.i
+.PHONY : src/Camera2D.cpp.i
+
+src/Camera2D.s: src/Camera2D.cpp.s
+.PHONY : src/Camera2D.s
+
+# target to generate assembly for a file
+src/Camera2D.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Camera2D.cpp.s
+.PHONY : src/Camera2D.cpp.s
+
 src/Renderer.o: src/Renderer.cpp.o
 .PHONY : src/Renderer.o
 
@@ -285,6 +309,9 @@ help:
 	@echo "... src/Application.o"
 	@echo "... src/Application.i"
 	@echo "... src/Application.s"
+	@echo "... src/Camera2D.o"
+	@echo "... src/Camera2D.i"
+	@echo "... src/Camera2D.s"
 	@echo "... src/Renderer.o"
 	@echo "... src/Renderer.i"
 	@echo "... src/Renderer.s"

@@ -44,17 +44,9 @@ void Window::destroy()
     SDL_Quit();
 }
 
-bool Window::processEvents()
+bool Window::pollEvent(SDL_Event& event)
 {
-    SDL_Event event;
-
-    while (SDL_PollEvent(&event))
-    {
-        if (event.type == SDL_EVENT_QUIT)
-            return false;
-    }
-
-    return true;
+    return SDL_PollEvent(&event);
 }
 
 void Window::clear()

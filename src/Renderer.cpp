@@ -18,11 +18,24 @@ void Renderer::present()
     SDL_RenderPresent(m_renderer);
 }
 
-void Renderer::draw(const Texture& texture)
+void Renderer::draw(
+    const Texture& texture,
+    float x,
+    float y,
+    float width,
+    float height)
 {
+    SDL_FRect destination =
+    {
+        x,
+        y,
+        width,
+        height
+    };
+
     SDL_RenderTexture(
         m_renderer,
         texture.handle(),
         nullptr,
-        nullptr);
+        &destination);
 }

@@ -12,7 +12,7 @@ public:
     bool create(const char* title, int width, int height);
     void destroy();
 
-    bool processEvents();
+    bool pollEvent(SDL_Event& event);
 
     void clear();
     void present();

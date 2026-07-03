@@ -14,7 +14,12 @@ public:
     void clear();
     void present();
 
-    void draw(const Texture& texture);
+    void draw(
+        const Texture& texture,
+        float x,
+        float y,
+        float width,
+        float height);
 
 private:
     SDL_Renderer* m_renderer = nullptr;
