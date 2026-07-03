@@ -153,6 +153,30 @@ src/Application.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Application.cpp.s
 .PHONY : src/Application.cpp.s
 
+src/Renderer.o: src/Renderer.cpp.o
+.PHONY : src/Renderer.o
+
+# target to build an object file
+src/Renderer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Renderer.cpp.o
+.PHONY : src/Renderer.cpp.o
+
+src/Renderer.i: src/Renderer.cpp.i
+.PHONY : src/Renderer.i
+
+# target to preprocess a source file
+src/Renderer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Renderer.cpp.i
+.PHONY : src/Renderer.cpp.i
+
+src/Renderer.s: src/Renderer.cpp.s
+.PHONY : src/Renderer.s
+
+# target to generate assembly for a file
+src/Renderer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Renderer.cpp.s
+.PHONY : src/Renderer.cpp.s
+
 src/Window.o: src/Window.cpp.o
 .PHONY : src/Window.o
 
@@ -176,6 +200,54 @@ src/Window.s: src/Window.cpp.s
 src/Window.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Window.cpp.s
 .PHONY : src/Window.cpp.s
+
+src/graphics/Image.o: src/graphics/Image.cpp.o
+.PHONY : src/graphics/Image.o
+
+# target to build an object file
+src/graphics/Image.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/graphics/Image.cpp.o
+.PHONY : src/graphics/Image.cpp.o
+
+src/graphics/Image.i: src/graphics/Image.cpp.i
+.PHONY : src/graphics/Image.i
+
+# target to preprocess a source file
+src/graphics/Image.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/graphics/Image.cpp.i
+.PHONY : src/graphics/Image.cpp.i
+
+src/graphics/Image.s: src/graphics/Image.cpp.s
+.PHONY : src/graphics/Image.s
+
+# target to generate assembly for a file
+src/graphics/Image.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/graphics/Image.cpp.s
+.PHONY : src/graphics/Image.cpp.s
+
+src/graphics/Texture.o: src/graphics/Texture.cpp.o
+.PHONY : src/graphics/Texture.o
+
+# target to build an object file
+src/graphics/Texture.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/graphics/Texture.cpp.o
+.PHONY : src/graphics/Texture.cpp.o
+
+src/graphics/Texture.i: src/graphics/Texture.cpp.i
+.PHONY : src/graphics/Texture.i
+
+# target to preprocess a source file
+src/graphics/Texture.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/graphics/Texture.cpp.i
+.PHONY : src/graphics/Texture.cpp.i
+
+src/graphics/Texture.s: src/graphics/Texture.cpp.s
+.PHONY : src/graphics/Texture.s
+
+# target to generate assembly for a file
+src/graphics/Texture.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/graphics/Texture.cpp.s
+.PHONY : src/graphics/Texture.cpp.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
@@ -213,9 +285,18 @@ help:
 	@echo "... src/Application.o"
 	@echo "... src/Application.i"
 	@echo "... src/Application.s"
+	@echo "... src/Renderer.o"
+	@echo "... src/Renderer.i"
+	@echo "... src/Renderer.s"
 	@echo "... src/Window.o"
 	@echo "... src/Window.i"
 	@echo "... src/Window.s"
+	@echo "... src/graphics/Image.o"
+	@echo "... src/graphics/Image.i"
+	@echo "... src/graphics/Image.s"
+	@echo "... src/graphics/Texture.o"
+	@echo "... src/graphics/Texture.i"
+	@echo "... src/graphics/Texture.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

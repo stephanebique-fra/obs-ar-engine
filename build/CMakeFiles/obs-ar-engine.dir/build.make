@@ -114,11 +114,56 @@ CMakeFiles/obs-ar-engine.dir/src/Window.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/obs-ar-engine.dir/src/Window.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/src/Window.cpp -o CMakeFiles/obs-ar-engine.dir/src/Window.cpp.s
 
+CMakeFiles/obs-ar-engine.dir/src/graphics/Image.cpp.o: CMakeFiles/obs-ar-engine.dir/flags.make
+CMakeFiles/obs-ar-engine.dir/src/graphics/Image.cpp.o: /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/src/graphics/Image.cpp
+CMakeFiles/obs-ar-engine.dir/src/graphics/Image.cpp.o: CMakeFiles/obs-ar-engine.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/obs-ar-engine.dir/src/graphics/Image.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/obs-ar-engine.dir/src/graphics/Image.cpp.o -MF CMakeFiles/obs-ar-engine.dir/src/graphics/Image.cpp.o.d -o CMakeFiles/obs-ar-engine.dir/src/graphics/Image.cpp.o -c /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/src/graphics/Image.cpp
+
+CMakeFiles/obs-ar-engine.dir/src/graphics/Image.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/obs-ar-engine.dir/src/graphics/Image.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/src/graphics/Image.cpp > CMakeFiles/obs-ar-engine.dir/src/graphics/Image.cpp.i
+
+CMakeFiles/obs-ar-engine.dir/src/graphics/Image.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/obs-ar-engine.dir/src/graphics/Image.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/src/graphics/Image.cpp -o CMakeFiles/obs-ar-engine.dir/src/graphics/Image.cpp.s
+
+CMakeFiles/obs-ar-engine.dir/src/graphics/Texture.cpp.o: CMakeFiles/obs-ar-engine.dir/flags.make
+CMakeFiles/obs-ar-engine.dir/src/graphics/Texture.cpp.o: /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/src/graphics/Texture.cpp
+CMakeFiles/obs-ar-engine.dir/src/graphics/Texture.cpp.o: CMakeFiles/obs-ar-engine.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/obs-ar-engine.dir/src/graphics/Texture.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/obs-ar-engine.dir/src/graphics/Texture.cpp.o -MF CMakeFiles/obs-ar-engine.dir/src/graphics/Texture.cpp.o.d -o CMakeFiles/obs-ar-engine.dir/src/graphics/Texture.cpp.o -c /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/src/graphics/Texture.cpp
+
+CMakeFiles/obs-ar-engine.dir/src/graphics/Texture.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/obs-ar-engine.dir/src/graphics/Texture.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/src/graphics/Texture.cpp > CMakeFiles/obs-ar-engine.dir/src/graphics/Texture.cpp.i
+
+CMakeFiles/obs-ar-engine.dir/src/graphics/Texture.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/obs-ar-engine.dir/src/graphics/Texture.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/src/graphics/Texture.cpp -o CMakeFiles/obs-ar-engine.dir/src/graphics/Texture.cpp.s
+
+CMakeFiles/obs-ar-engine.dir/src/Renderer.cpp.o: CMakeFiles/obs-ar-engine.dir/flags.make
+CMakeFiles/obs-ar-engine.dir/src/Renderer.cpp.o: /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/src/Renderer.cpp
+CMakeFiles/obs-ar-engine.dir/src/Renderer.cpp.o: CMakeFiles/obs-ar-engine.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/obs-ar-engine.dir/src/Renderer.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/obs-ar-engine.dir/src/Renderer.cpp.o -MF CMakeFiles/obs-ar-engine.dir/src/Renderer.cpp.o.d -o CMakeFiles/obs-ar-engine.dir/src/Renderer.cpp.o -c /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/src/Renderer.cpp
+
+CMakeFiles/obs-ar-engine.dir/src/Renderer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/obs-ar-engine.dir/src/Renderer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/src/Renderer.cpp > CMakeFiles/obs-ar-engine.dir/src/Renderer.cpp.i
+
+CMakeFiles/obs-ar-engine.dir/src/Renderer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/obs-ar-engine.dir/src/Renderer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/src/Renderer.cpp -o CMakeFiles/obs-ar-engine.dir/src/Renderer.cpp.s
+
 # Object files for target obs-ar-engine
 obs__ar__engine_OBJECTS = \
 "CMakeFiles/obs-ar-engine.dir/src/main.cpp.o" \
 "CMakeFiles/obs-ar-engine.dir/src/Application.cpp.o" \
-"CMakeFiles/obs-ar-engine.dir/src/Window.cpp.o"
+"CMakeFiles/obs-ar-engine.dir/src/Window.cpp.o" \
+"CMakeFiles/obs-ar-engine.dir/src/graphics/Image.cpp.o" \
+"CMakeFiles/obs-ar-engine.dir/src/graphics/Texture.cpp.o" \
+"CMakeFiles/obs-ar-engine.dir/src/Renderer.cpp.o"
 
 # External object files for target obs-ar-engine
 obs__ar__engine_EXTERNAL_OBJECTS =
@@ -126,10 +171,13 @@ obs__ar__engine_EXTERNAL_OBJECTS =
 obs-ar-engine: CMakeFiles/obs-ar-engine.dir/src/main.cpp.o
 obs-ar-engine: CMakeFiles/obs-ar-engine.dir/src/Application.cpp.o
 obs-ar-engine: CMakeFiles/obs-ar-engine.dir/src/Window.cpp.o
+obs-ar-engine: CMakeFiles/obs-ar-engine.dir/src/graphics/Image.cpp.o
+obs-ar-engine: CMakeFiles/obs-ar-engine.dir/src/graphics/Texture.cpp.o
+obs-ar-engine: CMakeFiles/obs-ar-engine.dir/src/Renderer.cpp.o
 obs-ar-engine: CMakeFiles/obs-ar-engine.dir/build.make
 obs-ar-engine: /opt/homebrew/lib/libSDL3.0.dylib
 obs-ar-engine: CMakeFiles/obs-ar-engine.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable obs-ar-engine"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable obs-ar-engine"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/obs-ar-engine.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

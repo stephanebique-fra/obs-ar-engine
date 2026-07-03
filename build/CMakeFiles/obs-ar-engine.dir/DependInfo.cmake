@@ -9,7 +9,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/src/Application.cpp" "CMakeFiles/obs-ar-engine.dir/src/Application.cpp.o" "gcc" "CMakeFiles/obs-ar-engine.dir/src/Application.cpp.o.d"
+  "/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/src/Renderer.cpp" "CMakeFiles/obs-ar-engine.dir/src/Renderer.cpp.o" "gcc" "CMakeFiles/obs-ar-engine.dir/src/Renderer.cpp.o.d"
   "/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/src/Window.cpp" "CMakeFiles/obs-ar-engine.dir/src/Window.cpp.o" "gcc" "CMakeFiles/obs-ar-engine.dir/src/Window.cpp.o.d"
+  "/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/src/graphics/Image.cpp" "CMakeFiles/obs-ar-engine.dir/src/graphics/Image.cpp.o" "gcc" "CMakeFiles/obs-ar-engine.dir/src/graphics/Image.cpp.o.d"
+  "/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/src/graphics/Texture.cpp" "CMakeFiles/obs-ar-engine.dir/src/graphics/Texture.cpp.o" "gcc" "CMakeFiles/obs-ar-engine.dir/src/graphics/Texture.cpp.o.d"
   "/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/src/main.cpp" "CMakeFiles/obs-ar-engine.dir/src/main.cpp.o" "gcc" "CMakeFiles/obs-ar-engine.dir/src/main.cpp.o.d"
   )
 

@@ -8,11 +8,15 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(SDL3 REQUIRED)
 
 include_directories(include)
+include_directories(third_party)
 
 add_executable(obs-ar-engine
     src/main.cpp
     src/Application.cpp
     src/Window.cpp
+    src/graphics/Image.cpp
+    src/graphics/Texture.cpp
+    src/Renderer.cpp
 )
 
 target_link_libraries(obs-ar-engine PRIVATE SDL3::SDL3)

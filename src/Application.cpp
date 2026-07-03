@@ -2,7 +2,19 @@
 
 bool Application::initialize()
 {
-    return m_window.create("OBS AR Engine", 1280, 720);
+    if (!m_window.create("OBS AR Engine", 1280, 720))
+        return false;
+
+    if (!m_renderer.initialize(m_window.renderer()))
+        return false;
+
+    if (!m_image.load("assets/images/court.jpg"))
+        return false;
+
+    if (!m_texture.create(m_window.renderer(), m_image))
+        return false;
+
+    return true;
 }
 
 void Application::run()
@@ -13,11 +25,11 @@ void Application::run()
     {
         running = m_window.processEvents();
 
-        m_window.clear();
+        m_renderer.clear();
 
-        // Rien à dessiner pour l'instant
+        m_renderer.draw(m_texture);
 
-        m_window.present();
+        m_renderer.present();
     }
 }
 
