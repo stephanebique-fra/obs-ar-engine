@@ -1,6 +1,7 @@
 #include "Renderer.hpp"
 #include "Camera2D.hpp"
 #include "Court.hpp"
+#include "ImageFrame.hpp"
 
 #include <algorithm>
 #include <cmath>
@@ -18,6 +19,17 @@ bool Renderer::initialize(SDL_Renderer* renderer)
     return m_renderer != nullptr;
 }
 
+Renderer::~Renderer()
+{
+    destroy();
+}
+
+void Renderer::destroy()
+{
+    destroyBackgroundTexture();
+    m_renderer = nullptr;
+}
+
 void Renderer::setLineThickness(float metres)
 {
     m_lineThicknessMetres = std::max(0.0f, metres);
@@ -32,6 +44,45 @@ void Renderer::clear()
 void Renderer::present()
 {
     SDL_RenderPresent(m_renderer);
+}
+
+void Renderer::drawBackground(const ImageFrame& frame)
+{
+    updateBackgroundTexture(frame);
+
+    if (!m_backgroundTexture)
+        return;
+
+    int windowWidth = 0;
+    int windowHeight = 0;
+
+    SDL_GetRenderOutputSize(
+        m_renderer,
+        &windowWidth,
+        &windowHeight);
+
+    if (m_backgroundWidth <= 0.0f || m_backgroundHeight <= 0.0f)
+        return;
+
+    const float scale = std::max(
+        static_cast<float>(windowWidth) / m_backgroundWidth,
+        static_cast<float>(windowHeight) / m_backgroundHeight);
+    const float width = m_backgroundWidth * scale;
+    const float height = m_backgroundHeight * scale;
+
+    const SDL_FRect destination =
+    {
+        (static_cast<float>(windowWidth) - width) * 0.5f,
+        (static_cast<float>(windowHeight) - height) * 0.5f,
+        width,
+        height
+    };
+
+    SDL_RenderTexture(
+        m_renderer,
+        m_backgroundTexture,
+        nullptr,
+        &destination);
 }
 
 void Renderer::draw(
@@ -165,4 +216,61 @@ void Renderer::drawArc(
 
         previous = current;
     }
+}
+
+void Renderer::updateBackgroundTexture(const ImageFrame& frame)
+{
+    const unsigned int frameVersion = frame.version;
+
+    if (frameVersion == m_backgroundFrameVersion)
+        return;
+
+    if (!frame.isValid())
+    {
+        destroyBackgroundTexture();
+        m_backgroundFrameVersion = frameVersion;
+        return;
+    }
+
+    if (!m_backgroundTexture
+        || m_backgroundWidth != static_cast<float>(frame.width)
+        || m_backgroundHeight != static_cast<float>(frame.height))
+    {
+        destroyBackgroundTexture();
+
+        m_backgroundTexture = SDL_CreateTexture(
+            m_renderer,
+            SDL_PIXELFORMAT_RGBA32,
+            SDL_TEXTUREACCESS_STREAMING,
+            frame.width,
+            frame.height);
+
+        if (!m_backgroundTexture)
+            return;
+
+        SDL_SetTextureScaleMode(m_backgroundTexture, SDL_SCALEMODE_LINEAR);
+        m_backgroundWidth = static_cast<float>(frame.width);
+        m_backgroundHeight = static_cast<float>(frame.height);
+    }
+
+    if (!SDL_UpdateTexture(
+        m_backgroundTexture,
+        nullptr,
+        frame.pixels.data(),
+        frame.pitch))
+        return;
+
+    m_backgroundFrameVersion = frameVersion;
+}
+
+void Renderer::destroyBackgroundTexture()
+{
+    if (m_backgroundTexture)
+    {
+        SDL_DestroyTexture(m_backgroundTexture);
+        m_backgroundTexture = nullptr;
+    }
+
+    m_backgroundWidth = 0.0f;
+    m_backgroundHeight = 0.0f;
 }

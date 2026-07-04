@@ -225,6 +225,30 @@ src/Renderer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Renderer.cpp.s
 .PHONY : src/Renderer.cpp.s
 
+src/VideoSource.o: src/VideoSource.cpp.o
+.PHONY : src/VideoSource.o
+
+# target to build an object file
+src/VideoSource.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/VideoSource.cpp.o
+.PHONY : src/VideoSource.cpp.o
+
+src/VideoSource.i: src/VideoSource.cpp.i
+.PHONY : src/VideoSource.i
+
+# target to preprocess a source file
+src/VideoSource.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/VideoSource.cpp.i
+.PHONY : src/VideoSource.cpp.i
+
+src/VideoSource.s: src/VideoSource.cpp.s
+.PHONY : src/VideoSource.s
+
+# target to generate assembly for a file
+src/VideoSource.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/VideoSource.cpp.s
+.PHONY : src/VideoSource.cpp.s
+
 src/Window.o: src/Window.cpp.o
 .PHONY : src/Window.o
 
@@ -342,6 +366,9 @@ help:
 	@echo "... src/Renderer.o"
 	@echo "... src/Renderer.i"
 	@echo "... src/Renderer.s"
+	@echo "... src/VideoSource.o"
+	@echo "... src/VideoSource.i"
+	@echo "... src/VideoSource.s"
 	@echo "... src/Window.o"
 	@echo "... src/Window.i"
 	@echo "... src/Window.s"

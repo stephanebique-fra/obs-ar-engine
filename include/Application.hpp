@@ -4,6 +4,7 @@
 #include "Renderer.hpp"
 #include "Camera2D.hpp"
 #include "Court.hpp"
+#include "VideoSource.hpp"
 
 class Application
 {
@@ -17,6 +18,7 @@ private:
     Camera2D m_camera;
     Renderer m_renderer;
     Court m_court;
+    VideoSource m_videoSource;
 
     bool m_isPanning = false;
 };

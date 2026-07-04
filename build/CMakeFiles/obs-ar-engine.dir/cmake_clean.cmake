@@ -7,6 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/obs-ar-engine.dir/src/Court.cpp.o.d"
   "CMakeFiles/obs-ar-engine.dir/src/Renderer.cpp.o"
   "CMakeFiles/obs-ar-engine.dir/src/Renderer.cpp.o.d"
+  "CMakeFiles/obs-ar-engine.dir/src/VideoSource.cpp.o"
+  "CMakeFiles/obs-ar-engine.dir/src/VideoSource.cpp.o.d"
   "CMakeFiles/obs-ar-engine.dir/src/Window.cpp.o"
   "CMakeFiles/obs-ar-engine.dir/src/Window.cpp.o.d"
   "CMakeFiles/obs-ar-engine.dir/src/graphics/Image.cpp.o"

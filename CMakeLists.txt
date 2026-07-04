@@ -14,6 +14,7 @@ add_executable(obs-ar-engine
     src/main.cpp
     src/Application.cpp
     src/Court.cpp
+    src/VideoSource.cpp
     src/Window.cpp
     src/graphics/Image.cpp
     src/graphics/Texture.cpp

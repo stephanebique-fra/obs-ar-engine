@@ -11,7 +11,7 @@ Window::~Window()
 
 bool Window::create(const char* title, int width, int height)
 {
-    if (!SDL_Init(SDL_INIT_VIDEO))
+    if (!SDL_Init(SDL_INIT_VIDEO | SDL_INIT_CAMERA))
         return false;
 
     m_window = SDL_CreateWindow(title, width, height, 0);

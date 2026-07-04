@@ -22,6 +22,7 @@ bool Application::initialize()
     }
 
     m_renderer.setLineThickness(0.05f);
+    m_videoSource.openDefaultCamera();
 
     m_camera.reset();
     m_camera.setZoom(DefaultCameraZoom);
@@ -43,6 +44,11 @@ void Application::run()
             {
             case SDL_EVENT_QUIT:
                 running = false;
+                break;
+
+            case SDL_EVENT_CAMERA_DEVICE_DENIED:
+            case SDL_EVENT_CAMERA_DEVICE_REMOVED:
+                m_videoSource.close();
                 break;
 
             case SDL_EVENT_MOUSE_WHEEL:
@@ -91,7 +97,10 @@ void Application::run()
             }
         }
 
+        m_videoSource.update();
+
         m_renderer.clear();
+        m_renderer.drawBackground(m_videoSource.frame());
 
         m_renderer.draw(
             m_court,
@@ -103,5 +112,7 @@ void Application::run()
 
 void Application::shutdown()
 {
+    m_videoSource.close();
+    m_renderer.destroy();
     m_window.destroy();
 }

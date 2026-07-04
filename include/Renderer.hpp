@@ -5,18 +5,23 @@
 #include <SDL3/SDL.h>
 
 class Camera2D;
+struct ImageFrame;
 
 class Renderer
 {
 public:
     Renderer() = default;
+    ~Renderer();
 
     bool initialize(SDL_Renderer* renderer);
+    void destroy();
 
     void setLineThickness(float metres);
 
     void clear();
     void present();
+
+    void drawBackground(const ImageFrame& frame);
 
     void draw(
         const Court& court,
@@ -52,6 +57,13 @@ private:
         float metresToPixels,
         const Court::Arc& arc);
 
+    void updateBackgroundTexture(const ImageFrame& frame);
+    void destroyBackgroundTexture();
+
     SDL_Renderer* m_renderer = nullptr;
+    SDL_Texture* m_backgroundTexture = nullptr;
+    unsigned int m_backgroundFrameVersion = 0;
+    float m_backgroundWidth = 0.0f;
+    float m_backgroundHeight = 0.0f;
     float m_lineThicknessMetres = 0.05f;
 };
