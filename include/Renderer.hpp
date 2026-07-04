@@ -13,6 +13,8 @@ public:
 
     bool initialize(SDL_Renderer* renderer);
 
+    void setLineThickness(float metres);
+
     void clear();
     void present();
 
@@ -33,6 +35,11 @@ private:
         float metresToPixels,
         const Court::Point& point) const;
 
+    void drawLine(
+        const ScreenPoint& start,
+        const ScreenPoint& end,
+        float thicknessPixels);
+
     void drawCircle(
         const Court& court,
         const Camera2D& camera,
@@ -46,4 +53,5 @@ private:
         const Court::Arc& arc);
 
     SDL_Renderer* m_renderer = nullptr;
+    float m_lineThicknessMetres = 0.05f;
 };

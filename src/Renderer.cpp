@@ -18,6 +18,11 @@ bool Renderer::initialize(SDL_Renderer* renderer)
     return m_renderer != nullptr;
 }
 
+void Renderer::setLineThickness(float metres)
+{
+    m_lineThicknessMetres = std::max(0.0f, metres);
+}
+
 void Renderer::clear()
 {
     SDL_SetRenderDrawColor(m_renderer, 30, 30, 30, 255);
@@ -44,6 +49,7 @@ void Renderer::draw(
     const float scaleX = static_cast<float>(windowWidth) / court.length();
     const float scaleY = static_cast<float>(windowHeight) / court.width();
     const float metresToPixels = std::min(scaleX, scaleY) * CourtFit * camera.zoom();
+    const float thicknessPixels = std::max(1.0f, m_lineThicknessMetres * metresToPixels);
 
     SDL_SetRenderDrawColor(m_renderer, 235, 235, 225, 255);
 
@@ -52,12 +58,7 @@ void Renderer::draw(
         const ScreenPoint start = toScreen(court, camera, metresToPixels, line.start);
         const ScreenPoint end = toScreen(court, camera, metresToPixels, line.end);
 
-        SDL_RenderLine(
-            m_renderer,
-            start.x,
-            start.y,
-            end.x,
-            end.y);
+        drawLine(start, end, thicknessPixels);
     }
 
     for (const Court::Circle& circle : court.circles())
@@ -92,6 +93,36 @@ Renderer::ScreenPoint Renderer::toScreen(
     };
 }
 
+void Renderer::drawLine(
+    const ScreenPoint& start,
+    const ScreenPoint& end,
+    float thicknessPixels)
+{
+    const float dx = end.x - start.x;
+    const float dy = end.y - start.y;
+    const float length = std::sqrt((dx * dx) + (dy * dy));
+
+    if (length <= 0.0f)
+        return;
+
+    const float normalX = -dy / length;
+    const float normalY = dx / length;
+    const int lineCount = static_cast<int>(std::ceil(thicknessPixels));
+    const float startOffset = (static_cast<float>(lineCount) - 1.0f) * -0.5f;
+
+    for (int i = 0; i < lineCount; ++i)
+    {
+        const float offset = startOffset + static_cast<float>(i);
+
+        SDL_RenderLine(
+            m_renderer,
+            start.x + (normalX * offset),
+            start.y + (normalY * offset),
+            end.x + (normalX * offset),
+            end.y + (normalY * offset));
+    }
+}
+
 void Renderer::drawCircle(
     const Court& court,
     const Camera2D& camera,
@@ -111,6 +142,7 @@ void Renderer::drawArc(
     float metresToPixels,
     const Court::Arc& arc)
 {
+    const float thicknessPixels = std::max(1.0f, m_lineThicknessMetres * metresToPixels);
     const int segments = std::abs(arc.endRadians - arc.startRadians) > 6.0f
         ? CircleSegments
         : ArcSegments;
@@ -129,14 +161,7 @@ void Renderer::drawArc(
         const ScreenPoint current = toScreen(court, camera, metresToPixels, point);
 
         if (i > 0)
-        {
-            SDL_RenderLine(
-                m_renderer,
-                previous.x,
-                previous.y,
-                current.x,
-                current.y);
-        }
+            drawLine(previous, current, thicknessPixels);
 
         previous = current;
     }

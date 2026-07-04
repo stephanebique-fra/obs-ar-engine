@@ -21,6 +21,8 @@ bool Application::initialize()
         return false;
     }
 
+    m_renderer.setLineThickness(0.05f);
+
     m_camera.reset();
     m_camera.setZoom(DefaultCameraZoom);
 
