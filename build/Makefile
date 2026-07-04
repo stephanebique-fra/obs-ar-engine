@@ -177,6 +177,30 @@ src/Camera2D.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Camera2D.cpp.s
 .PHONY : src/Camera2D.cpp.s
 
+src/Court.o: src/Court.cpp.o
+.PHONY : src/Court.o
+
+# target to build an object file
+src/Court.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Court.cpp.o
+.PHONY : src/Court.cpp.o
+
+src/Court.i: src/Court.cpp.i
+.PHONY : src/Court.i
+
+# target to preprocess a source file
+src/Court.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Court.cpp.i
+.PHONY : src/Court.cpp.i
+
+src/Court.s: src/Court.cpp.s
+.PHONY : src/Court.s
+
+# target to generate assembly for a file
+src/Court.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Court.cpp.s
+.PHONY : src/Court.cpp.s
+
 src/Renderer.o: src/Renderer.cpp.o
 .PHONY : src/Renderer.o
 
@@ -312,6 +336,9 @@ help:
 	@echo "... src/Camera2D.o"
 	@echo "... src/Camera2D.i"
 	@echo "... src/Camera2D.s"
+	@echo "... src/Court.o"
+	@echo "... src/Court.i"
+	@echo "... src/Court.s"
 	@echo "... src/Renderer.o"
 	@echo "... src/Renderer.i"
 	@echo "... src/Renderer.s"

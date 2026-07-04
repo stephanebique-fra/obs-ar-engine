@@ -3,7 +3,7 @@
 
 namespace
 {
-constexpr float DefaultCameraZoom = 0.5f;
+constexpr float DefaultCameraZoom = 1.0f;
 constexpr float WheelZoomFactor = 1.1f;
 }
 
@@ -20,19 +20,6 @@ bool Application::initialize()
     {
         return false;
     }
-
-
-    if (!m_image.load("assets/images/court.jpg"))
-    {
-        return false;
-    }
-
-
-    if (!m_texture.create(m_window.renderer(), m_image))
-    {
-        return false;
-    }
-
 
     m_camera.reset();
     m_camera.setZoom(DefaultCameraZoom);
@@ -85,7 +72,8 @@ void Application::run()
                 if (m_isPanning && (event.motion.state & SDL_BUTTON_LMASK))
                     m_camera.move(
                         event.motion.xrel / m_camera.zoom(),
-                        event.motion.yrel / m_camera.zoom());                break;
+                        event.motion.yrel / m_camera.zoom());
+                break;
 
             case SDL_EVENT_KEY_DOWN:
                 if (!event.key.repeat && event.key.key == SDLK_R)
@@ -104,10 +92,8 @@ void Application::run()
         m_renderer.clear();
 
         m_renderer.draw(
-            m_texture,
-            m_camera,
-            static_cast<float>(m_image.width()),
-            static_cast<float>(m_image.height()));
+            m_court,
+            m_camera);
 
         m_renderer.present();
     }

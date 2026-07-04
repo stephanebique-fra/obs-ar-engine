@@ -13,6 +13,7 @@ include_directories(third_party)
 add_executable(obs-ar-engine
     src/main.cpp
     src/Application.cpp
+    src/Court.cpp
     src/Window.cpp
     src/graphics/Image.cpp
     src/graphics/Texture.cpp

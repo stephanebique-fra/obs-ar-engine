@@ -6,7 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include -I/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/third_party -I/opt/homebrew/include
 
-CXX_FLAGSarm64 = -std=gnu++20 -arch arm64
-
-CXX_FLAGS = -std=gnu++20 -arch arm64
+CXX_FLAGS = -std=gnu++20
 

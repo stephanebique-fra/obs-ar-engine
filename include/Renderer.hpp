@@ -1,8 +1,9 @@
 #pragma once
 
+#include "Court.hpp"
+
 #include <SDL3/SDL.h>
 
-class Texture;
 class Camera2D;
 
 class Renderer
@@ -16,11 +17,33 @@ public:
     void present();
 
     void draw(
-        const Texture& texture,
-        const Camera2D& camera,
-        float sourceWidth,
-        float sourceHeight);
+        const Court& court,
+        const Camera2D& camera);
 
 private:
+    struct ScreenPoint
+    {
+        float x = 0.0f;
+        float y = 0.0f;
+    };
+
+    ScreenPoint toScreen(
+        const Court& court,
+        const Camera2D& camera,
+        float metresToPixels,
+        const Court::Point& point) const;
+
+    void drawCircle(
+        const Court& court,
+        const Camera2D& camera,
+        float metresToPixels,
+        const Court::Circle& circle);
+
+    void drawArc(
+        const Court& court,
+        const Camera2D& camera,
+        float metresToPixels,
+        const Court::Arc& arc);
+
     SDL_Renderer* m_renderer = nullptr;
 };
