@@ -1,46 +1,42 @@
 #include "Application.hpp"
-#include <iostream>
+
+
+namespace
+{
+constexpr float DefaultCameraZoom = 0.5f;
+constexpr float WheelZoomFactor = 1.1f;
+}
 
 bool Application::initialize()
 {
-    std::cout << "1\n";
 
     if (!m_window.create("OBS AR Engine", 1280, 720))
     {
-        std::cout << "Window failed\n";
         return false;
     }
 
-    std::cout << "2\n";
 
     if (!m_renderer.initialize(m_window.renderer()))
     {
-        std::cout << "Renderer failed\n";
         return false;
     }
 
-    std::cout << "3\n";
 
     if (!m_image.load("assets/images/court.jpg"))
     {
-        std::cout << "Image failed\n";
         return false;
     }
 
-    std::cout << "4\n";
 
     if (!m_texture.create(m_window.renderer(), m_image))
     {
-        std::cout << "Texture failed\n";
         return false;
     }
 
-    std::cout << "5\n";
 
     m_camera.reset();
-    m_camera.setZoom(2.0f);
+    m_camera.setZoom(DefaultCameraZoom);
 
-    std::cout << "OK\n";
 
     return true;
 }
@@ -54,18 +50,64 @@ void Application::run()
     {
         while (m_window.pollEvent(event))
         {
-            if (event.type == SDL_EVENT_QUIT)
+            switch (event.type)
+            {
+            case SDL_EVENT_QUIT:
                 running = false;
+                break;
+
+            case SDL_EVENT_MOUSE_WHEEL:
+            {
+                float wheelY = event.wheel.y;
+
+                if (event.wheel.direction == SDL_MOUSEWHEEL_FLIPPED)
+                    wheelY *= -1.0f;
+
+                if (wheelY > 0.0f)
+                    m_camera.zoom(WheelZoomFactor);
+                else if (wheelY < 0.0f)
+                    m_camera.zoom(1.0f / WheelZoomFactor);
+
+                break;
+            }
+
+            case SDL_EVENT_MOUSE_BUTTON_DOWN:
+                if (event.button.button == SDL_BUTTON_LEFT)
+                    m_isPanning = true;
+                break;
+
+            case SDL_EVENT_MOUSE_BUTTON_UP:
+                if (event.button.button == SDL_BUTTON_LEFT)
+                    m_isPanning = false;
+                break;
+
+            case SDL_EVENT_MOUSE_MOTION:
+                if (m_isPanning && (event.motion.state & SDL_BUTTON_LMASK))
+                    m_camera.move(
+                        event.motion.xrel / m_camera.zoom(),
+                        event.motion.yrel / m_camera.zoom());                break;
+
+            case SDL_EVENT_KEY_DOWN:
+                if (!event.key.repeat && event.key.key == SDLK_R)
+                {
+                    m_camera.reset();
+                    m_camera.setZoom(DefaultCameraZoom);
+                    m_isPanning = false;
+                }
+                break;
+
+            default:
+                break;
+            }
         }
 
         m_renderer.clear();
 
         m_renderer.draw(
             m_texture,
-            m_camera.x(),
-            m_camera.y(),
-            static_cast<float>(m_image.width()) * m_camera.zoom(),
-            static_cast<float>(m_image.height()) * m_camera.zoom());
+            m_camera,
+            static_cast<float>(m_image.width()),
+            static_cast<float>(m_image.height()));
 
         m_renderer.present();
     }

@@ -19,4 +19,6 @@ private:
     Renderer m_renderer;
     Image m_image;
     Texture m_texture;
+
+    bool m_isPanning = false;
 };

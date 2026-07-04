@@ -1,4 +1,5 @@
 #include "Renderer.hpp"
+#include "Camera2D.hpp"
 #include "graphics/Texture.hpp"
 
 bool Renderer::initialize(SDL_Renderer* renderer)
@@ -20,15 +21,25 @@ void Renderer::present()
 
 void Renderer::draw(
     const Texture& texture,
-    float x,
-    float y,
-    float width,
-    float height)
+    const Camera2D& camera,
+    float sourceWidth,
+    float sourceHeight)
 {
+    int windowWidth = 0;
+    int windowHeight = 0;
+
+    SDL_GetRenderOutputSize(
+        m_renderer,
+        &windowWidth,
+        &windowHeight);
+
+    const float width = sourceWidth * camera.zoom();
+    const float height = sourceHeight * camera.zoom();
+
     SDL_FRect destination =
     {
-        x,
-        y,
+        (static_cast<float>(windowWidth) - width) * 0.5f + camera.x(),
+        (static_cast<float>(windowHeight) - height) * 0.5f + camera.y(),
         width,
         height
     };

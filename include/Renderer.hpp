@@ -3,6 +3,7 @@
 #include <SDL3/SDL.h>
 
 class Texture;
+class Camera2D;
 
 class Renderer
 {
@@ -16,10 +17,9 @@ public:
 
     void draw(
         const Texture& texture,
-        float x,
-        float y,
-        float width,
-        float height);
+        const Camera2D& camera,
+        float sourceWidth,
+        float sourceHeight);
 
 private:
     SDL_Renderer* m_renderer = nullptr;
