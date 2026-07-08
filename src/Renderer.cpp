@@ -3,6 +3,8 @@
 #include "Court.hpp"
 #include "ImageFrame.hpp"
 #include "Calibration.hpp"
+#include "Homography.hpp"
+#include <opencv2/core.hpp>
 
 #include <algorithm>
 #include <cmath>
@@ -280,9 +282,9 @@ void Renderer::drawCalibration(
     std::size_t selectedPoint,
     float pointSize)
 {
-    for (std::size_t i = 0; i < Calibration::PointCount; ++i)
+    for (std::size_t i = 0; i < calibration.pointCount(); ++i)
     {
-        const auto& point = calibration.imagePoint(i);
+        const auto& point = calibration.point(i);
 
         if (i == selectedPoint)
             SDL_SetRenderDrawColor(m_renderer, 255, 255, 0, 255);
@@ -294,12 +296,53 @@ void Renderer::drawCalibration(
             : pointSize;
         SDL_FRect rect =
         {
-            point.x - size * 0.5f,
-            point.y - size * 0.5f,
+            point.imageX - size * 0.5f,
+            point.imageY - size * 0.5f,
             size,
             size
         };
 
         SDL_RenderFillRect(m_renderer, &rect);
+    }
+}
+void Renderer::drawMarker(float x, float y)
+{
+    SDL_SetRenderDrawColor(m_renderer, 0, 255, 0, 255);
+
+    SDL_FRect marker =
+    {
+        x - 5.0f,
+        y - 5.0f,
+        10.0f,
+        10.0f
+    };
+
+    SDL_RenderFillRect(m_renderer, &marker);
+}
+void Renderer::drawProjectedCourt(
+    const Court& court,
+    const Homography& homography)
+{
+    if (!homography.isValid())
+        return;
+
+    SDL_SetRenderDrawColor(m_renderer, 0, 255, 0, 255);
+
+    for (const Court::Line& line : court.lines())
+    {
+        cv::Point2f p1 =
+            homography.courtToImage(
+                { line.start.x, line.start.y });
+
+        cv::Point2f p2 =
+            homography.courtToImage(
+                { line.end.x, line.end.y });
+
+        SDL_RenderLine(
+            m_renderer,
+            p1.x,
+            p1.y,
+            p2.x,
+            p2.y);
     }
 }

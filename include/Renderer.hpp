@@ -2,6 +2,7 @@
 
 #include "Court.hpp"
 #include <cstddef>
+#include "Homography.hpp"
 
 #include <SDL3/SDL.h>
 
@@ -33,6 +34,13 @@ public:
         const Calibration& calibration,
         std::size_t selectedPoint,
         float pointSize = 8.0f);
+
+    void drawMarker(float x, float y);
+
+    void drawProjectedCourt(
+    const Court& court,
+    const Homography& homography);
+
 private:
     struct ScreenPoint
     {

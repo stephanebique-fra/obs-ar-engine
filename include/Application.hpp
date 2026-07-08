@@ -7,6 +7,7 @@
 #include "VideoSource.hpp"
 #include "Calibration.hpp"
 #include <cstddef>
+#include "Homography.hpp"
 
 class Application
 {
@@ -26,4 +27,5 @@ private:
     bool m_isPanning = false;
     bool m_isDraggingCalibrationPoint = false;
     bool m_editCalibration = false;
+    Homography m_homography;
 };

@@ -1,28 +1,30 @@
 #pragma once
 
-#include <array>
+#include "CalibrationPoint.hpp"
+
 #include <cstddef>
+#include <string>
+#include <vector>
 
 class Calibration
 {
 public:
-    struct ImagePoint
-    {
-        float x = 0.0f;
-        float y = 0.0f;
-    };
+    void addPoint(const CalibrationPoint& point);
 
-    static constexpr std::size_t PointCount = 4;
+    void setPoint(std::size_t index, const CalibrationPoint& point);
+    void movePoint(std::size_t index, float dx, float dy);
 
-    void setImagePoint(std::size_t index, float x, float y);
-    void setImagePoint(std::size_t index, ImagePoint point);
+    const CalibrationPoint& point(std::size_t index) const;
+    std::size_t pointCount() const;
 
-    void moveImagePoint(std::size_t index, float dx, float dy);
-    
-    const ImagePoint& imagePoint(std::size_t index) const;
-    const std::array<ImagePoint, PointCount>& imagePoints() const;
-    std::size_t findNearestImagePoint(float x, float y, float maxDistance) const;
+    std::size_t findNearestImagePoint(
+        float x,
+        float y,
+        float maxDistance) const;
+
+    bool save(const std::string& filename) const;
+    bool load(const std::string& filename);
 
 private:
-    std::array<ImagePoint, PointCount> m_imagePoints = {};
+    std::vector<CalibrationPoint> m_points;
 };

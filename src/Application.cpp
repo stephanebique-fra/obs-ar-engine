@@ -1,5 +1,7 @@
 #include "Application.hpp"
-
+#include <vector>
+#include <opencv2/core.hpp>
+#include <iostream>
 
 namespace
 {
@@ -26,10 +28,14 @@ bool Application::initialize()
 
     m_camera.reset();
     m_camera.setZoom(DefaultCameraZoom);
-    m_calibration.setImagePoint(0, 100.0f, 100.0f);
-    m_calibration.setImagePoint(1, 1180.0f, 100.0f);
-    m_calibration.setImagePoint(2, 1180.0f, 620.0f);
-    m_calibration.setImagePoint(3, 100.0f, 620.0f);
+    if (m_calibration.pointCount() == 0)
+    {
+        m_calibration.addPoint({100.0f, 100.0f, 0.0f, 0.0f});
+        m_calibration.addPoint({1180.0f, 100.0f, 28.0f, 0.0f});
+        m_calibration.addPoint({1180.0f, 620.0f, 28.0f, 15.0f});
+        m_calibration.addPoint({100.0f, 620.0f, 0.0f, 15.0f});
+    }
+    m_calibration.load("calibration.txt");
 
     return true;
 }
@@ -80,7 +86,7 @@ void Application::run()
                                 event.button.y,
                                 15.0f);
 
-                        if (point != Calibration::PointCount)
+                        if (point < m_calibration.pointCount())
                         {
                             m_selectedCalibrationPoint = point;
                             m_isDraggingCalibrationPoint = true;
@@ -104,7 +110,7 @@ void Application::run()
             case SDL_EVENT_MOUSE_MOTION:
                 if (m_isDraggingCalibrationPoint)
                 {
-                    m_calibration.moveImagePoint(
+                    m_calibration.movePoint(
                         m_selectedCalibrationPoint,
                         event.motion.xrel,
                         event.motion.yrel);
@@ -147,19 +153,19 @@ void Application::run()
                         break;
 
                     case SDLK_LEFT:
-                        m_calibration.moveImagePoint(m_selectedCalibrationPoint, -5.0f, 0.0f);
+                        m_calibration.movePoint(m_selectedCalibrationPoint, -5.0f, 0.0f);
                         break;
 
                     case SDLK_RIGHT:
-                        m_calibration.moveImagePoint(m_selectedCalibrationPoint, 5.0f, 0.0f);
+                        m_calibration.movePoint(m_selectedCalibrationPoint, 5.0f, 0.0f);
                         break;
 
                     case SDLK_UP:
-                        m_calibration.moveImagePoint(m_selectedCalibrationPoint, 0.0f, -5.0f);
+                        m_calibration.movePoint(m_selectedCalibrationPoint, 0.0f, -5.0f);
                         break;
 
                     case SDLK_DOWN:
-                        m_calibration.moveImagePoint(m_selectedCalibrationPoint, 0.0f, 5.0f);
+                        m_calibration.movePoint(m_selectedCalibrationPoint, 0.0f, 5.0f);
                         break;
 
                     default:
@@ -175,23 +181,59 @@ void Application::run()
 
         m_videoSource.update();
 
+        std::vector<cv::Point2f> imagePoints;
+        std::vector<cv::Point2f> courtPoints;
+
+        for (std::size_t i = 0; i < m_calibration.pointCount(); ++i)
+        {
+            const auto& point = m_calibration.point(i);
+
+            imagePoints.emplace_back(point.imageX, point.imageY);
+            courtPoints.emplace_back(point.courtX, point.courtY);
+        }
+
+        m_homography.compute(imagePoints, courtPoints);
+
+        if (m_homography.isValid())
+        {
+            const cv::Point2f center =
+                m_homography.courtToImage({14.0f, 7.5f});
+            
+     
+
+            std::cout << "Court center -> Image : "
+                      << center.x
+                      << ", "
+                      << center.y
+                      << '\n';
+        }
+
         m_renderer.clear();
         m_renderer.drawBackground(m_videoSource.frame());
 
-        m_renderer.draw(
+        m_renderer.drawProjectedCourt(
             m_court,
-            m_camera);
+            m_homography);
         
         m_renderer.drawCalibration(
             m_calibration,
             m_selectedCalibrationPoint,
             10.0f);
+
+        if (m_homography.isValid())
+        {
+            const cv::Point2f center =
+                m_homography.courtToImage({14.0f, 7.5f});
+
+            m_renderer.drawMarker(center.x, center.y);
+        }
         m_renderer.present();
     }
 }
 
 void Application::shutdown()
 {
+    m_calibration.save("calibration.txt");
     m_videoSource.close();
     m_renderer.destroy();
     m_window.destroy();
