@@ -225,6 +225,30 @@ src/Court.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Court.cpp.s
 .PHONY : src/Court.cpp.s
 
+src/Homography.o: src/Homography.cpp.o
+.PHONY : src/Homography.o
+
+# target to build an object file
+src/Homography.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Homography.cpp.o
+.PHONY : src/Homography.cpp.o
+
+src/Homography.i: src/Homography.cpp.i
+.PHONY : src/Homography.i
+
+# target to preprocess a source file
+src/Homography.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Homography.cpp.i
+.PHONY : src/Homography.cpp.i
+
+src/Homography.s: src/Homography.cpp.s
+.PHONY : src/Homography.s
+
+# target to generate assembly for a file
+src/Homography.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Homography.cpp.s
+.PHONY : src/Homography.cpp.s
+
 src/Renderer.o: src/Renderer.cpp.o
 .PHONY : src/Renderer.o
 
@@ -390,6 +414,9 @@ help:
 	@echo "... src/Court.o"
 	@echo "... src/Court.i"
 	@echo "... src/Court.s"
+	@echo "... src/Homography.o"
+	@echo "... src/Homography.i"
+	@echo "... src/Homography.s"
 	@echo "... src/Renderer.o"
 	@echo "... src/Renderer.i"
 	@echo "... src/Renderer.s"

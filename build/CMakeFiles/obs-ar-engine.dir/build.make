@@ -212,6 +212,20 @@ CMakeFiles/obs-ar-engine.dir/src/Camera2D.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/obs-ar-engine.dir/src/Camera2D.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/src/Camera2D.cpp -o CMakeFiles/obs-ar-engine.dir/src/Camera2D.cpp.s
 
+CMakeFiles/obs-ar-engine.dir/src/Homography.cpp.o: CMakeFiles/obs-ar-engine.dir/flags.make
+CMakeFiles/obs-ar-engine.dir/src/Homography.cpp.o: /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/src/Homography.cpp
+CMakeFiles/obs-ar-engine.dir/src/Homography.cpp.o: CMakeFiles/obs-ar-engine.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/obs-ar-engine.dir/src/Homography.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/obs-ar-engine.dir/src/Homography.cpp.o -MF CMakeFiles/obs-ar-engine.dir/src/Homography.cpp.o.d -o CMakeFiles/obs-ar-engine.dir/src/Homography.cpp.o -c /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/src/Homography.cpp
+
+CMakeFiles/obs-ar-engine.dir/src/Homography.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/obs-ar-engine.dir/src/Homography.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/src/Homography.cpp > CMakeFiles/obs-ar-engine.dir/src/Homography.cpp.i
+
+CMakeFiles/obs-ar-engine.dir/src/Homography.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/obs-ar-engine.dir/src/Homography.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/src/Homography.cpp -o CMakeFiles/obs-ar-engine.dir/src/Homography.cpp.s
+
 # Object files for target obs-ar-engine
 obs__ar__engine_OBJECTS = \
 "CMakeFiles/obs-ar-engine.dir/src/main.cpp.o" \
@@ -223,7 +237,8 @@ obs__ar__engine_OBJECTS = \
 "CMakeFiles/obs-ar-engine.dir/src/graphics/Image.cpp.o" \
 "CMakeFiles/obs-ar-engine.dir/src/graphics/Texture.cpp.o" \
 "CMakeFiles/obs-ar-engine.dir/src/Renderer.cpp.o" \
-"CMakeFiles/obs-ar-engine.dir/src/Camera2D.cpp.o"
+"CMakeFiles/obs-ar-engine.dir/src/Camera2D.cpp.o" \
+"CMakeFiles/obs-ar-engine.dir/src/Homography.cpp.o"
 
 # External object files for target obs-ar-engine
 obs__ar__engine_EXTERNAL_OBJECTS =
@@ -238,10 +253,67 @@ obs-ar-engine: CMakeFiles/obs-ar-engine.dir/src/graphics/Image.cpp.o
 obs-ar-engine: CMakeFiles/obs-ar-engine.dir/src/graphics/Texture.cpp.o
 obs-ar-engine: CMakeFiles/obs-ar-engine.dir/src/Renderer.cpp.o
 obs-ar-engine: CMakeFiles/obs-ar-engine.dir/src/Camera2D.cpp.o
+obs-ar-engine: CMakeFiles/obs-ar-engine.dir/src/Homography.cpp.o
 obs-ar-engine: CMakeFiles/obs-ar-engine.dir/build.make
 obs-ar-engine: /opt/homebrew/lib/libSDL3.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_gapi.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_stitching.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_alphamat.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_aruco.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_bgsegm.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_bioinspired.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_ccalib.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_dnn_objdetect.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_dnn_superres.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_dpm.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_face.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_freetype.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_fuzzy.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_hfs.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_img_hash.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_intensity_transform.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_line_descriptor.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_mcc.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_quality.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_rapid.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_reg.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_rgbd.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_saliency.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_sfm.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_signal.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_stereo.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_structured_light.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_superres.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_surface_matching.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_tracking.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_videostab.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_viz.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_wechat_qrcode.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_xfeatures2d.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_xobjdetect.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_xphoto.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_shape.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_highgui.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_datasets.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_plot.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_text.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_ml.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_phase_unwrapping.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_optflow.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_ximgproc.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_video.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_videoio.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_imgcodecs.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_objdetect.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_calib3d.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_dnn.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_features2d.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_flann.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_photo.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_imgproc.4.13.0.dylib
+obs-ar-engine: /opt/homebrew/lib/libopencv_core.4.13.0.dylib
 obs-ar-engine: CMakeFiles/obs-ar-engine.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable obs-ar-engine"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable obs-ar-engine"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/obs-ar-engine.dir/link.txt --verbose=$(VERBOSE)
 	/opt/homebrew/bin/cmake -E copy_directory /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/assets /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/build/assets
 
