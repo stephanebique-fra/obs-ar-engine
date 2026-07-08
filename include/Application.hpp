@@ -5,6 +5,8 @@
 #include "Camera2D.hpp"
 #include "Court.hpp"
 #include "VideoSource.hpp"
+#include "Calibration.hpp"
+#include <cstddef>
 
 class Application
 {
@@ -19,6 +21,9 @@ private:
     Renderer m_renderer;
     Court m_court;
     VideoSource m_videoSource;
-
+    Calibration m_calibration;
+    std::size_t m_selectedCalibrationPoint = 0;
     bool m_isPanning = false;
+    bool m_isDraggingCalibrationPoint = false;
+    bool m_editCalibration = false;
 };

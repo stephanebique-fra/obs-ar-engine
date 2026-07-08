@@ -1,10 +1,12 @@
 #pragma once
 
 #include "Court.hpp"
+#include <cstddef>
 
 #include <SDL3/SDL.h>
 
 class Camera2D;
+class Calibration;
 struct ImageFrame;
 
 class Renderer
@@ -26,7 +28,11 @@ public:
     void draw(
         const Court& court,
         const Camera2D& camera);
-
+    
+    void drawCalibration(
+        const Calibration& calibration,
+        std::size_t selectedPoint,
+        float pointSize = 8.0f);
 private:
     struct ScreenPoint
     {

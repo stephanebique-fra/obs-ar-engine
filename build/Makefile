@@ -153,6 +153,30 @@ src/Application.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Application.cpp.s
 .PHONY : src/Application.cpp.s
 
+src/Calibration.o: src/Calibration.cpp.o
+.PHONY : src/Calibration.o
+
+# target to build an object file
+src/Calibration.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Calibration.cpp.o
+.PHONY : src/Calibration.cpp.o
+
+src/Calibration.i: src/Calibration.cpp.i
+.PHONY : src/Calibration.i
+
+# target to preprocess a source file
+src/Calibration.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Calibration.cpp.i
+.PHONY : src/Calibration.cpp.i
+
+src/Calibration.s: src/Calibration.cpp.s
+.PHONY : src/Calibration.s
+
+# target to generate assembly for a file
+src/Calibration.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Calibration.cpp.s
+.PHONY : src/Calibration.cpp.s
+
 src/Camera2D.o: src/Camera2D.cpp.o
 .PHONY : src/Camera2D.o
 
@@ -357,6 +381,9 @@ help:
 	@echo "... src/Application.o"
 	@echo "... src/Application.i"
 	@echo "... src/Application.s"
+	@echo "... src/Calibration.o"
+	@echo "... src/Calibration.i"
+	@echo "... src/Calibration.s"
 	@echo "... src/Camera2D.o"
 	@echo "... src/Camera2D.i"
 	@echo "... src/Camera2D.s"

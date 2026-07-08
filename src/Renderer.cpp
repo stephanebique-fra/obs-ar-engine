@@ -2,6 +2,7 @@
 #include "Camera2D.hpp"
 #include "Court.hpp"
 #include "ImageFrame.hpp"
+#include "Calibration.hpp"
 
 #include <algorithm>
 #include <cmath>
@@ -273,4 +274,32 @@ void Renderer::destroyBackgroundTexture()
 
     m_backgroundWidth = 0.0f;
     m_backgroundHeight = 0.0f;
+}
+void Renderer::drawCalibration(
+    const Calibration& calibration,
+    std::size_t selectedPoint,
+    float pointSize)
+{
+    for (std::size_t i = 0; i < Calibration::PointCount; ++i)
+    {
+        const auto& point = calibration.imagePoint(i);
+
+        if (i == selectedPoint)
+            SDL_SetRenderDrawColor(m_renderer, 255, 255, 0, 255);
+        else
+            SDL_SetRenderDrawColor(m_renderer, 255, 0, 0, 255);
+
+        const float size = (i == selectedPoint)
+            ? pointSize * 1.5f
+            : pointSize;
+        SDL_FRect rect =
+        {
+            point.x - size * 0.5f,
+            point.y - size * 0.5f,
+            size,
+            size
+        };
+
+        SDL_RenderFillRect(m_renderer, &rect);
+    }
 }
