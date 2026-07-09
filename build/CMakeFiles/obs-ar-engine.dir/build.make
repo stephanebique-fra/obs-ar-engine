@@ -240,6 +240,20 @@ CMakeFiles/obs-ar-engine.dir/src/FibaCourt.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/obs-ar-engine.dir/src/FibaCourt.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/src/FibaCourt.cpp -o CMakeFiles/obs-ar-engine.dir/src/FibaCourt.cpp.s
 
+CMakeFiles/obs-ar-engine.dir/src/Logo.cpp.o: CMakeFiles/obs-ar-engine.dir/flags.make
+CMakeFiles/obs-ar-engine.dir/src/Logo.cpp.o: /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/src/Logo.cpp
+CMakeFiles/obs-ar-engine.dir/src/Logo.cpp.o: CMakeFiles/obs-ar-engine.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/obs-ar-engine.dir/src/Logo.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/obs-ar-engine.dir/src/Logo.cpp.o -MF CMakeFiles/obs-ar-engine.dir/src/Logo.cpp.o.d -o CMakeFiles/obs-ar-engine.dir/src/Logo.cpp.o -c /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/src/Logo.cpp
+
+CMakeFiles/obs-ar-engine.dir/src/Logo.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/obs-ar-engine.dir/src/Logo.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/src/Logo.cpp > CMakeFiles/obs-ar-engine.dir/src/Logo.cpp.i
+
+CMakeFiles/obs-ar-engine.dir/src/Logo.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/obs-ar-engine.dir/src/Logo.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/src/Logo.cpp -o CMakeFiles/obs-ar-engine.dir/src/Logo.cpp.s
+
 # Object files for target obs-ar-engine
 obs__ar__engine_OBJECTS = \
 "CMakeFiles/obs-ar-engine.dir/src/main.cpp.o" \
@@ -253,7 +267,8 @@ obs__ar__engine_OBJECTS = \
 "CMakeFiles/obs-ar-engine.dir/src/Renderer.cpp.o" \
 "CMakeFiles/obs-ar-engine.dir/src/Camera2D.cpp.o" \
 "CMakeFiles/obs-ar-engine.dir/src/Homography.cpp.o" \
-"CMakeFiles/obs-ar-engine.dir/src/FibaCourt.cpp.o"
+"CMakeFiles/obs-ar-engine.dir/src/FibaCourt.cpp.o" \
+"CMakeFiles/obs-ar-engine.dir/src/Logo.cpp.o"
 
 # External object files for target obs-ar-engine
 obs__ar__engine_EXTERNAL_OBJECTS =
@@ -270,6 +285,7 @@ obs-ar-engine: CMakeFiles/obs-ar-engine.dir/src/Renderer.cpp.o
 obs-ar-engine: CMakeFiles/obs-ar-engine.dir/src/Camera2D.cpp.o
 obs-ar-engine: CMakeFiles/obs-ar-engine.dir/src/Homography.cpp.o
 obs-ar-engine: CMakeFiles/obs-ar-engine.dir/src/FibaCourt.cpp.o
+obs-ar-engine: CMakeFiles/obs-ar-engine.dir/src/Logo.cpp.o
 obs-ar-engine: CMakeFiles/obs-ar-engine.dir/build.make
 obs-ar-engine: /opt/homebrew/lib/libSDL3_ttf.0.2.2.dylib
 obs-ar-engine: /opt/homebrew/lib/libopencv_gapi.4.13.0.dylib
@@ -330,7 +346,7 @@ obs-ar-engine: /opt/homebrew/lib/libopencv_photo.4.13.0.dylib
 obs-ar-engine: /opt/homebrew/lib/libopencv_imgproc.4.13.0.dylib
 obs-ar-engine: /opt/homebrew/lib/libopencv_core.4.13.0.dylib
 obs-ar-engine: CMakeFiles/obs-ar-engine.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable obs-ar-engine"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable obs-ar-engine"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/obs-ar-engine.dir/link.txt --verbose=$(VERBOSE)
 	/opt/homebrew/bin/cmake -E copy_directory /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/assets /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/build/assets
 

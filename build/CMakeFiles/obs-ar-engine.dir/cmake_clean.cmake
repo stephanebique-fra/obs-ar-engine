@@ -11,6 +11,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/obs-ar-engine.dir/src/FibaCourt.cpp.o.d"
   "CMakeFiles/obs-ar-engine.dir/src/Homography.cpp.o"
   "CMakeFiles/obs-ar-engine.dir/src/Homography.cpp.o.d"
+  "CMakeFiles/obs-ar-engine.dir/src/Logo.cpp.o"
+  "CMakeFiles/obs-ar-engine.dir/src/Logo.cpp.o.d"
   "CMakeFiles/obs-ar-engine.dir/src/Renderer.cpp.o"
   "CMakeFiles/obs-ar-engine.dir/src/Renderer.cpp.o.d"
   "CMakeFiles/obs-ar-engine.dir/src/VideoSource.cpp.o"

@@ -3,7 +3,6 @@
 #include "Court.hpp"
 #include <cstddef>
 #include "Homography.hpp"
-
 #include <SDL3/SDL.h>
 
 class Camera2D;
@@ -38,8 +37,16 @@ public:
     void drawMarker(float x, float y);
 
     void drawProjectedCourt(
-    const Court& court,
-    const Homography& homography);
+        const Court& court,
+        const Homography& homography);
+
+    void drawProjectedRectangle(
+        float x,
+        float y,
+        float width,
+        float height,
+        SDL_Color color,
+        const Homography& homography);
 
 private:
     struct ScreenPoint
@@ -84,4 +91,6 @@ private:
     void drawProjectedArc(
     const Court::Arc& arc,
     const Homography& homography);
+
+
 };

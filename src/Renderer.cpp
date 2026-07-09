@@ -8,6 +8,7 @@
 
 #include <algorithm>
 #include <cmath>
+#include <iostream>
 
 namespace
 {
@@ -414,4 +415,56 @@ void Renderer::drawProjectedArc(
 
         previous = current;
     }
+}
+void Renderer::drawProjectedRectangle(
+    float x,
+    float y,
+    float width,
+    float height,
+    SDL_Color color,
+    const Homography& homography)
+{
+    std::cout << "drawProjectedRectangle" << std::endl;
+
+    if (!homography.isValid())
+    {
+        std::cout << "Homography INVALID" << std::endl;
+        return;
+    }
+
+    std::cout << "Homography VALID" << std::endl;
+    const cv::Point2f p1 =
+        homography.courtToImage({ x, y });
+
+    const cv::Point2f p2 =
+        homography.courtToImage({ x + width, y });
+
+    const cv::Point2f p3 =
+        homography.courtToImage({ x + width, y + height });
+
+    const cv::Point2f p4 =
+        homography.courtToImage({ x, y + height });
+
+        std::cout << "P1 : " << p1.x << ", " << p1.y << '\n';
+        std::cout << "P2 : " << p2.x << ", " << p2.y << '\n';
+        std::cout << "P3 : " << p3.x << ", " << p3.y << '\n';
+        std::cout << "P4 : " << p4.x << ", " << p4.y << '\n';
+        std::cout << "------------------\n";
+
+    SDL_SetRenderDrawColor(
+        m_renderer,
+        color.r,
+        color.g,
+        color.b,
+        color.a);
+
+    // Contour
+    SDL_RenderLine(m_renderer, p1.x, p1.y, p2.x, p2.y);
+    SDL_RenderLine(m_renderer, p2.x, p2.y, p3.x, p3.y);
+    SDL_RenderLine(m_renderer, p3.x, p3.y, p4.x, p4.y);
+    SDL_RenderLine(m_renderer, p4.x, p4.y, p1.x, p1.y);
+
+    // Diagonales (pour vérifier la perspective)
+    SDL_RenderLine(m_renderer, p1.x, p1.y, p3.x, p3.y);
+    SDL_RenderLine(m_renderer, p2.x, p2.y, p4.x, p4.y);
 }

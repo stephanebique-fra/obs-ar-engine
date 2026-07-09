@@ -25,6 +25,7 @@ add_executable(obs-ar-engine
     src/Camera2D.cpp
     src/Homography.cpp
     src/FibaCourt.cpp
+    src/Logo.cpp
 )
 
 target_link_libraries(obs-ar-engine PRIVATE

@@ -20,6 +20,18 @@ bool Application::initialize()
 
     m_renderer.setLineThickness(0.05f);
 
+    m_logo.load(
+        m_window.renderer(),
+        "assets/images/logo.png");
+
+    m_logo.setPosition(
+        12.0f,
+        6.5f);
+
+    m_logo.setSize(
+        4.0f,
+        2.0f);
+
     m_videoSource.openDefaultCamera();
 
     m_camera.reset();
@@ -278,13 +290,27 @@ void Application::run()
             imagePoints.emplace_back(point.imageX, point.imageY);
             const Court::Point courtPosition =
                 FibaCourt::markerPosition(point.marker);
-
+            std::cout
+                << "Marker = " << static_cast<int>(point.marker)
+                << " -> "
+                << courtPosition.x << ", "
+                << courtPosition.y
+                << '\n';
+            
             courtPoints.emplace_back(
                 courtPosition.x,
                 courtPosition.y);
         }
+        std::cout << "Image points : " << imagePoints.size() << '\n';
+        std::cout << "Court points : " << courtPoints.size() << '\n';
 
-        m_homography.compute(imagePoints, courtPoints);
+        const bool ok =
+            m_homography.compute(imagePoints, courtPoints);
+
+        std::cout << "compute() = "
+                  << (ok ? "OK" : "FAILED")
+                  << '\n';
+
 
 
         m_renderer.clear();
@@ -294,6 +320,14 @@ void Application::run()
             m_court,
             m_homography);
         
+        m_renderer.drawProjectedRectangle(
+            10.0f,          // X (mètres)
+            6.0f,           // Y (mètres)
+            4.0f,           // Largeur
+            2.0f,           // Hauteur
+            {255, 0, 0, 255},
+            m_homography);
+
         m_renderer.drawCalibration(
             m_calibration,
             m_selectedCalibrationPoint,

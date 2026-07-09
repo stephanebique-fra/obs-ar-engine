@@ -8,6 +8,7 @@
 #include "Calibration.hpp"
 #include <cstddef>
 #include "Homography.hpp"
+#include "Logo.hpp"
 
 class Application
 {
@@ -28,4 +29,5 @@ private:
     bool m_isDraggingCalibrationPoint = false;
     bool m_editCalibration = false;
     Homography m_homography;
+    Logo m_logo;
 };

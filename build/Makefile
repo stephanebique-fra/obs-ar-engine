@@ -273,6 +273,30 @@ src/Homography.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Homography.cpp.s
 .PHONY : src/Homography.cpp.s
 
+src/Logo.o: src/Logo.cpp.o
+.PHONY : src/Logo.o
+
+# target to build an object file
+src/Logo.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Logo.cpp.o
+.PHONY : src/Logo.cpp.o
+
+src/Logo.i: src/Logo.cpp.i
+.PHONY : src/Logo.i
+
+# target to preprocess a source file
+src/Logo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Logo.cpp.i
+.PHONY : src/Logo.cpp.i
+
+src/Logo.s: src/Logo.cpp.s
+.PHONY : src/Logo.s
+
+# target to generate assembly for a file
+src/Logo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Logo.cpp.s
+.PHONY : src/Logo.cpp.s
+
 src/Renderer.o: src/Renderer.cpp.o
 .PHONY : src/Renderer.o
 
@@ -444,6 +468,9 @@ help:
 	@echo "... src/Homography.o"
 	@echo "... src/Homography.i"
 	@echo "... src/Homography.s"
+	@echo "... src/Logo.o"
+	@echo "... src/Logo.i"
+	@echo "... src/Logo.s"
 	@echo "... src/Renderer.o"
 	@echo "... src/Renderer.i"
 	@echo "... src/Renderer.s"
