@@ -1091,4 +1091,6 @@ CMakeFiles/obs-ar-engine.dir/src/Application.cpp.o: \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/ImageFrame.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/Calibration.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/CalibrationPoint.hpp \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream
+  /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/FibaMarker.hpp \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream \
+  /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/FibaCourt.hpp

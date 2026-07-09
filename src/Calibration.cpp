@@ -7,16 +7,23 @@
 
 void Calibration::setPoint(std::size_t index, const CalibrationPoint& point)
 {
-    assert(index < m_points.size());
+    if (index >= m_points.size())
+        return;
+
     m_points[index] = point;
+
+    save("calibration.txt");
 }
 
 void Calibration::movePoint(std::size_t index, float dx, float dy)
 {
-    assert(index < m_points.size());
+    if (index >= m_points.size())
+        return;
 
     m_points[index].imageX += dx;
     m_points[index].imageY += dy;
+
+    save("calibration.txt");
 }
 
 std::size_t Calibration::findNearestImagePoint(
@@ -108,6 +115,8 @@ bool Calibration::load(const std::string& filename)
 void Calibration::addPoint(const CalibrationPoint& point)
 {
     m_points.push_back(point);
+
+    save("calibration.txt");
 }
 
 std::size_t Calibration::pointCount() const
@@ -119,4 +128,45 @@ const CalibrationPoint& Calibration::point(std::size_t index) const
 {
     assert(index < m_points.size());
     return m_points[index];
+}
+void Calibration::togglePoint(std::size_t index)
+{
+    if (index >= m_points.size())
+        return;
+
+    m_points[index].enabled = !m_points[index].enabled;
+
+    save("calibration.txt");
+}
+void Calibration::addPoint(float imageX, float imageY)
+{
+    CalibrationPoint point;
+
+    point.imageX = imageX;
+    point.imageY = imageY;
+    point.enabled = true;
+    point.marker = FibaMarker::Unknown;
+
+    m_points.push_back(point);
+
+    save("calibration.txt");
+}
+void Calibration::removePoint(std::size_t index)
+{
+    if (index >= m_points.size())
+        return;
+
+    m_points.erase(m_points.begin() + index);
+
+    save("calibration.txt");
+}
+void Calibration::centerPoint(std::size_t index, float x, float y)
+{
+    if (index >= m_points.size())
+        return;
+
+    m_points[index].imageX = x;
+    m_points[index].imageY = y;
+
+    save("calibration.txt");
 }

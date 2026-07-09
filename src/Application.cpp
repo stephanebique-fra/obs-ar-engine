@@ -2,6 +2,7 @@
 #include <vector>
 #include <opencv2/core.hpp>
 #include <iostream>
+#include "FibaCourt.hpp"
 
 namespace
 {
@@ -11,31 +12,61 @@ constexpr float WheelZoomFactor = 1.1f;
 
 bool Application::initialize()
 {
-
     if (!m_window.create("OBS AR Engine", 1280, 720))
-    {
         return false;
-    }
-
 
     if (!m_renderer.initialize(m_window.renderer()))
-    {
         return false;
-    }
 
     m_renderer.setLineThickness(0.05f);
+
     m_videoSource.openDefaultCamera();
 
     m_camera.reset();
     m_camera.setZoom(DefaultCameraZoom);
-    if (m_calibration.pointCount() == 0)
+
+    // Charger une calibration existante
+    if (!m_calibration.load("calibration.txt"))
     {
-        m_calibration.addPoint({100.0f, 100.0f, 0.0f, 0.0f});
-        m_calibration.addPoint({1180.0f, 100.0f, 28.0f, 0.0f});
-        m_calibration.addPoint({1180.0f, 620.0f, 28.0f, 15.0f});
-        m_calibration.addPoint({100.0f, 620.0f, 0.0f, 15.0f});
+        // Sinon créer la calibration par défaut
+        m_calibration.addPoint({
+            FibaMarker::CourtTopLeft,
+            100.0f,
+            100.0f,
+            0.0f,
+            0.0f,
+            true
+        });
+
+        m_calibration.addPoint({
+            FibaMarker::CourtTopRight,
+            1180.0f,
+            100.0f,
+            28.0f,
+            0.0f,
+            true
+        });
+
+        m_calibration.addPoint({
+            FibaMarker::CourtBottomRight,
+            1180.0f,
+            620.0f,
+            28.0f,
+            15.0f,
+            true
+        });
+
+        m_calibration.addPoint({
+            FibaMarker::CourtBottomLeft,
+            100.0f,
+            620.0f,
+            0.0f,
+            15.0f,
+            true
+        });
+
+        m_calibration.save("calibration.txt");
     }
-    m_calibration.load("calibration.txt");
 
     return true;
 }
@@ -128,21 +159,25 @@ void Application::run()
                 {
                     switch (event.key.key)
                 {
-                    case SDLK_1:
-                        m_selectedCalibrationPoint = 0;
-                        break;
+                    case SDLK_TAB:
+                    {
+                        if (event.key.mod & SDL_KMOD_SHIFT)
+                        {
+                            if (m_selectedCalibrationPoint == 0)
+                                m_selectedCalibrationPoint = m_calibration.pointCount() - 1;
+                            else
+                                --m_selectedCalibrationPoint;
+                        }
+                        else
+                        {
+                            ++m_selectedCalibrationPoint;
 
-                    case SDLK_2:
-                        m_selectedCalibrationPoint = 1;
+                            if (m_selectedCalibrationPoint >= m_calibration.pointCount())
+                                m_selectedCalibrationPoint = 0;
+                        }
                         break;
-
-                    case SDLK_3:
-                        m_selectedCalibrationPoint = 2;
-                        break;
-
-                    case SDLK_4:
-                        m_selectedCalibrationPoint = 3;
-                        break;
+                    }
+                    
                     case SDLK_C:
                         m_editCalibration = !m_editCalibration;
                         break;
@@ -152,6 +187,37 @@ void Application::run()
                         m_isPanning = false;
                         break;
 
+                    case SDLK_N:
+                    {
+                        m_calibration.addPoint(640.0f, 360.0f);
+                        m_selectedCalibrationPoint =
+                            m_calibration.pointCount() - 1;
+                        break;
+                    }
+                    case SDLK_DELETE:
+                    case SDLK_BACKSPACE:
+                    {
+                        if (m_calibration.pointCount() > 4)
+                        {
+                            m_calibration.removePoint(m_selectedCalibrationPoint);
+
+                            if (m_selectedCalibrationPoint >= m_calibration.pointCount())
+                                m_selectedCalibrationPoint =
+                                    m_calibration.pointCount() - 1;
+                        }
+
+                        break;
+                    }
+                    case SDLK_E:
+                        m_calibration.togglePoint(
+                            m_selectedCalibrationPoint);
+                        break;
+                    case SDLK_F:
+                        m_calibration.centerPoint(
+                        m_selectedCalibrationPoint,
+                        640.0f,
+                        360.0f);
+                    break;
                     case SDLK_LEFT:
                         m_calibration.movePoint(m_selectedCalibrationPoint, -5.0f, 0.0f);
                         break;
@@ -188,25 +254,20 @@ void Application::run()
         {
             const auto& point = m_calibration.point(i);
 
+            if (!point.enabled)
+                continue;
+
             imagePoints.emplace_back(point.imageX, point.imageY);
-            courtPoints.emplace_back(point.courtX, point.courtY);
+            const Court::Point courtPosition =
+                FibaCourt::markerPosition(point.marker);
+
+            courtPoints.emplace_back(
+                courtPosition.x,
+                courtPosition.y);
         }
 
         m_homography.compute(imagePoints, courtPoints);
 
-        if (m_homography.isValid())
-        {
-            const cv::Point2f center =
-                m_homography.courtToImage({14.0f, 7.5f});
-            
-     
-
-            std::cout << "Court center -> Image : "
-                      << center.x
-                      << ", "
-                      << center.y
-                      << '\n';
-        }
 
         m_renderer.clear();
         m_renderer.drawBackground(m_videoSource.frame());

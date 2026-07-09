@@ -225,6 +225,30 @@ src/Court.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Court.cpp.s
 .PHONY : src/Court.cpp.s
 
+src/FibaCourt.o: src/FibaCourt.cpp.o
+.PHONY : src/FibaCourt.o
+
+# target to build an object file
+src/FibaCourt.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/FibaCourt.cpp.o
+.PHONY : src/FibaCourt.cpp.o
+
+src/FibaCourt.i: src/FibaCourt.cpp.i
+.PHONY : src/FibaCourt.i
+
+# target to preprocess a source file
+src/FibaCourt.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/FibaCourt.cpp.i
+.PHONY : src/FibaCourt.cpp.i
+
+src/FibaCourt.s: src/FibaCourt.cpp.s
+.PHONY : src/FibaCourt.s
+
+# target to generate assembly for a file
+src/FibaCourt.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/FibaCourt.cpp.s
+.PHONY : src/FibaCourt.cpp.s
+
 src/Homography.o: src/Homography.cpp.o
 .PHONY : src/Homography.o
 
@@ -414,6 +438,9 @@ help:
 	@echo "... src/Court.o"
 	@echo "... src/Court.i"
 	@echo "... src/Court.s"
+	@echo "... src/FibaCourt.o"
+	@echo "... src/FibaCourt.i"
+	@echo "... src/FibaCourt.s"
 	@echo "... src/Homography.o"
 	@echo "... src/Homography.i"
 	@echo "... src/Homography.s"

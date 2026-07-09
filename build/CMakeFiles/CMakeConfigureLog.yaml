@@ -2139,3 +2139,387 @@ events:
         - "/Network/Library/Frameworks"
         - "/System/Library/Frameworks"
 ...
+
+---
+events:
+  -
+    kind: "find_package-v1"
+    backtrace:
+      - "CMakeLists.txt:9 (find_package)"
+    name: "SDL3_ttf"
+    configs:
+      -
+        filename: "SDL3_ttf.cps"
+        kind: "cps"
+      -
+        filename: "sdl3_ttf.cps"
+        kind: "cps"
+      -
+        filename: "SDL3_ttfConfig.cmake"
+        kind: "cmake"
+      -
+        filename: "sdl3_ttf-config.cmake"
+        kind: "cmake"
+    version_request:
+      exact: false
+    settings:
+      required: "required_explicit"
+      quiet: false
+      global: false
+      policy_scope: true
+      bypass_provider: false
+      names:
+        - "SDL3_ttf"
+      path_suffixes:
+        - ""
+      paths:
+        CMAKE_FIND_USE_CMAKE_PATH: true
+        CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+        CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+        CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+        CMAKE_FIND_USE_INSTALL_PREFIX: true
+        CMAKE_FIND_USE_PACKAGE_ROOT_PATH: true
+        CMAKE_FIND_USE_CMAKE_PACKAGE_REGISTRY: true
+        CMAKE_FIND_USE_SYSTEM_PACKAGE_REGISTRY: true
+        CMAKE_FIND_ROOT_PATH_MODE: "BOTH"
+    candidates:
+      -
+        path: "/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/build/CMakeFiles/pkgRedirects/SDL3_ttfConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/build/CMakeFiles/pkgRedirects/sdl3_ttf-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/build/CMakeFiles/pkgRedirects/lib64/cps/SDL3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/build/CMakeFiles/pkgRedirects/lib64/cps/sdl3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/build/CMakeFiles/pkgRedirects/lib/cps/SDL3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/build/CMakeFiles/pkgRedirects/lib/cps/sdl3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/build/CMakeFiles/pkgRedirects/share/cps/SDL3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/build/CMakeFiles/pkgRedirects/share/cps/sdl3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Library/Java/JavaVirtualMachines/jdk-25.jdk/Contents/Home/SDL3_ttfConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/Library/Java/JavaVirtualMachines/jdk-25.jdk/Contents/Home/sdl3_ttf-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/Library/Java/JavaVirtualMachines/jdk-25.jdk/Contents/Home/lib64/cps/SDL3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Library/Java/JavaVirtualMachines/jdk-25.jdk/Contents/Home/lib64/cps/sdl3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Library/Java/JavaVirtualMachines/jdk-25.jdk/Contents/Home/lib/cps/SDL3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Library/Java/JavaVirtualMachines/jdk-25.jdk/Contents/Home/lib/cps/sdl3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Library/Java/JavaVirtualMachines/jdk-25.jdk/Contents/Home/share/cps/SDL3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Library/Java/JavaVirtualMachines/jdk-25.jdk/Contents/Home/share/cps/sdl3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Library/Frameworks/Python.framework/Versions/3.6/SDL3_ttfConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/Library/Frameworks/Python.framework/Versions/3.6/sdl3_ttf-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/Library/Frameworks/Python.framework/Versions/3.6/lib64/cps/SDL3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Library/Frameworks/Python.framework/Versions/3.6/lib64/cps/sdl3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Library/Frameworks/Python.framework/Versions/3.6/lib/cps/SDL3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Library/Frameworks/Python.framework/Versions/3.6/lib/cps/sdl3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Library/Frameworks/Python.framework/Versions/3.6/share/cps/SDL3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/Library/Frameworks/Python.framework/Versions/3.6/share/cps/sdl3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/opt/local/SDL3_ttfConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/opt/local/sdl3_ttf-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/opt/local/lib64/cps/SDL3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/opt/local/lib64/cps/sdl3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/opt/local/lib/cps/SDL3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/opt/local/lib/cps/sdl3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/opt/local/share/cps/SDL3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/opt/local/share/cps/sdl3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/usr/local/SDL3_ttfConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/usr/local/sdl3_ttf-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/usr/local/lib64/cps/SDL3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/usr/local/lib64/cps/sdl3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/usr/local/lib/cps/SDL3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/usr/local/lib/cps/sdl3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/usr/local/share/cps/SDL3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/usr/local/share/cps/sdl3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/System/Cryptexes/App/usr/SDL3_ttfConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/System/Cryptexes/App/usr/sdl3_ttf-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/System/Cryptexes/App/usr/lib64/cps/SDL3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/System/Cryptexes/App/usr/lib64/cps/sdl3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/System/Cryptexes/App/usr/lib/cps/SDL3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/System/Cryptexes/App/usr/lib/cps/sdl3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/System/Cryptexes/App/usr/share/cps/SDL3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/System/Cryptexes/App/usr/share/cps/sdl3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/usr/SDL3_ttfConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/usr/sdl3_ttf-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/usr/lib64/cps/SDL3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/usr/lib64/cps/sdl3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/usr/lib/cps/SDL3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/usr/lib/cps/sdl3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/usr/share/cps/SDL3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/usr/share/cps/sdl3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/SDL3_ttfConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/sdl3_ttf-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/lib64/cps/SDL3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/lib64/cps/sdl3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/lib/cps/SDL3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/lib/cps/sdl3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/share/cps/SDL3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/share/cps/sdl3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/opt/homebrew/SDL3_ttfConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/opt/homebrew/sdl3_ttf-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/opt/homebrew/lib64/cps/SDL3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/opt/homebrew/lib64/cps/sdl3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/opt/homebrew/lib/cps/SDL3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/opt/homebrew/lib/cps/sdl3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/opt/homebrew/share/cps/SDL3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/opt/homebrew/share/cps/sdl3_ttf.cps"
+        mode: "cps"
+        reason: "no_exist"
+    found:
+      path: "/opt/homebrew/lib/cmake/SDL3_ttf/SDL3_ttfConfig.cmake"
+      mode: "config"
+      version: "3.2.2"
+    search_context:
+      ENV{PATH}:
+        - "/Library/Java/JavaVirtualMachines/jdk-25.jdk/Contents/Home/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.6/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/pkg/env/global/bin"
+        - "/opt/homebrew/bin"
+        - "/Users/newstph/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/Users/newstph/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/Library/Java/JavaVirtualMachines/jdk-25.jdk/Contents/Home/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.6/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr"
+        - "/opt/homebrew"
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/opt/homebrew"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+        - "/sw"
+        - "/opt/local"
+      CMAKE_SYSTEM_FRAMEWORK_PATH:
+        - "~/Library/Frameworks"
+        - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/Library/Frameworks"
+        - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/Network/Library/Frameworks"
+        - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks"
+        - "/Library/Developer/CommandLineTools/Library/Frameworks"
+        - "/Library/Developer/CommandLineTools/Library/Frameworks"
+        - "/Library/Frameworks"
+        - "/Network/Library/Frameworks"
+        - "/System/Library/Frameworks"
+...

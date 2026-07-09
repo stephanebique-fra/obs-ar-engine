@@ -80,4 +80,8 @@ private:
     float m_backgroundWidth = 0.0f;
     float m_backgroundHeight = 0.0f;
     float m_lineThicknessMetres = 0.05f;
+
+    void drawProjectedArc(
+    const Court::Arc& arc,
+    const Homography& homography);
 };

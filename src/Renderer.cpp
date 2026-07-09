@@ -286,14 +286,27 @@ void Renderer::drawCalibration(
     {
         const auto& point = calibration.point(i);
 
-        if (i == selectedPoint)
+        if (!point.enabled)
+        {
+            // Gris = désactivé
+            SDL_SetRenderDrawColor(m_renderer, 120, 120, 120, 255);
+        }
+        else if (i == selectedPoint)
+        {
+            // Jaune = sélectionné
             SDL_SetRenderDrawColor(m_renderer, 255, 255, 0, 255);
+        }
         else
-            SDL_SetRenderDrawColor(m_renderer, 255, 0, 0, 255);
+        {
+            // Vert = actif
+            SDL_SetRenderDrawColor(m_renderer, 0, 255, 0, 255);
+        }
 
-        const float size = (i == selectedPoint)
+        const float size =
+            (i == selectedPoint)
             ? pointSize * 1.5f
             : pointSize;
+
         SDL_FRect rect =
         {
             point.imageX - size * 0.5f,
@@ -303,6 +316,10 @@ void Renderer::drawCalibration(
         };
 
         SDL_RenderFillRect(m_renderer, &rect);
+
+        // Contour noir pour améliorer la visibilité
+        SDL_SetRenderDrawColor(m_renderer, 0, 0, 0, 255);
+        SDL_RenderRect(m_renderer, &rect);
     }
 }
 void Renderer::drawMarker(float x, float y)
@@ -344,5 +361,57 @@ void Renderer::drawProjectedCourt(
             p1.y,
             p2.x,
             p2.y);
+    }
+    for (const Court::Circle& circle : court.circles())
+    {
+        drawProjectedArc(
+            { circle.center, circle.radius, 0.0f, 6.28318530717958647692f },
+            homography);
+    }
+
+    for (const Court::Arc& arc : court.arcs())
+    {
+        drawProjectedArc(
+            arc,
+            homography);
+    }
+}
+void Renderer::drawProjectedArc(
+    const Court::Arc& arc,
+    const Homography& homography)
+{
+    constexpr int Segments = 64;
+
+    cv::Point2f previous;
+
+    for (int i = 0; i <= Segments; ++i)
+    {
+        const float t = static_cast<float>(i) / static_cast<float>(Segments);
+
+        const float angle =
+            arc.startRadians +
+            ((arc.endRadians - arc.startRadians) * t);
+
+        const Court::Point point =
+        {
+            arc.center.x + std::cos(angle) * arc.radius,
+            arc.center.y + std::sin(angle) * arc.radius
+        };
+
+        const cv::Point2f current =
+            homography.courtToImage(
+                { point.x, point.y });
+
+        if (i > 0)
+        {
+            SDL_RenderLine(
+                m_renderer,
+                previous.x,
+                previous.y,
+                current.x,
+                current.y);
+        }
+
+        previous = current;
     }
 }
