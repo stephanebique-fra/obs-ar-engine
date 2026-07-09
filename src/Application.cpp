@@ -107,6 +107,7 @@ void Application::run()
             }
 
             case SDL_EVENT_MOUSE_BUTTON_DOWN:
+            {
                 if (event.button.button == SDL_BUTTON_LEFT)
                 {
                     if (m_editCalibration)
@@ -115,20 +116,37 @@ void Application::run()
                             m_calibration.findNearestImagePoint(
                                 event.button.x,
                                 event.button.y,
-                                15.0f);
+                                20.0f);
 
                         if (point < m_calibration.pointCount())
                         {
                             m_selectedCalibrationPoint = point;
                             m_isDraggingCalibrationPoint = true;
                         }
+
                     }
                     else
                     {
                         m_isPanning = true;
                     }
                 }
+
+                if (event.button.button == SDL_BUTTON_RIGHT &&
+                    m_editCalibration)
+                {
+                    const auto& p =
+                        m_calibration.point(m_selectedCalibrationPoint);
+
+                    m_calibration.addPoint(
+                        p.imageX + 25.0f,
+                        p.imageY + 25.0f);
+
+                    m_selectedCalibrationPoint =
+                        m_calibration.pointCount() - 1;
+                }
+
                 break;
+            }
                 
             case SDL_EVENT_MOUSE_BUTTON_UP:
                if (event.button.button == SDL_BUTTON_LEFT)
