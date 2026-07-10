@@ -228,6 +228,9 @@ OBSAREngine_SOURCE_DIR:STATIC=/Users/newstph/Library/CloudStorage/Dropbox/obs-ar
 //The directory containing a CMake configuration file for OpenCV.
 OpenCV_DIR:PATH=/opt/homebrew/lib/cmake/opencv4
 
+//Path to a library.
+OpenGL_LIBRARY:FILEPATH=/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/OpenGL.framework
+
 //The directory containing a CMake configuration file for SDL3.
 SDL3_DIR:PATH=/opt/homebrew/lib/cmake/SDL3
 
