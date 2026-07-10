@@ -1,7 +1,6 @@
 #pragma once
 
 #include <SDL3/SDL.h>
-#include <string>
 
 class Window
 {
@@ -17,9 +16,12 @@ public:
     void clear();
     void present();
 
+    SDL_Window* window() const;
     SDL_Renderer* renderer() const;
+    SDL_GLContext glContext() const;
 
 private:
     SDL_Window* m_window = nullptr;
     SDL_Renderer* m_renderer = nullptr;
+    SDL_GLContext m_glContext = nullptr;
 };
