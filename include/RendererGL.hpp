@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Shader.hpp"
+#include "Mesh.hpp"
 
 #include <glad/gl.h>
 
@@ -16,14 +17,12 @@ public:
     void beginFrame();
     void endFrame();
 
-    void drawTriangle();
+    void drawQuad();
 
 private:
     bool createTriangle();
 
 private:
     Shader m_shader;
-
-    GLuint m_vao = 0;
-    GLuint m_vbo = 0;
+    Mesh m_mesh;
 };

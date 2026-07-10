@@ -310,6 +310,33 @@ src/Logo.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Logo.cpp.s
 .PHONY : src/Logo.cpp.s
 
+src/Mesh.o: src/Mesh.cpp.o
+.PHONY : src/Mesh.o
+
+# target to build an object file
+src/Mesh.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Mesh.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gl_test.dir/build.make CMakeFiles/gl_test.dir/src/Mesh.cpp.o
+.PHONY : src/Mesh.cpp.o
+
+src/Mesh.i: src/Mesh.cpp.i
+.PHONY : src/Mesh.i
+
+# target to preprocess a source file
+src/Mesh.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Mesh.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gl_test.dir/build.make CMakeFiles/gl_test.dir/src/Mesh.cpp.i
+.PHONY : src/Mesh.cpp.i
+
+src/Mesh.s: src/Mesh.cpp.s
+.PHONY : src/Mesh.s
+
+# target to generate assembly for a file
+src/Mesh.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Mesh.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gl_test.dir/build.make CMakeFiles/gl_test.dir/src/Mesh.cpp.s
+.PHONY : src/Mesh.cpp.s
+
 src/Renderer.o: src/Renderer.cpp.o
 .PHONY : src/Renderer.o
 
@@ -387,6 +414,33 @@ src/Shader.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Shader.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gl_test.dir/build.make CMakeFiles/gl_test.dir/src/Shader.cpp.s
 .PHONY : src/Shader.cpp.s
+
+src/TextureGL.o: src/TextureGL.cpp.o
+.PHONY : src/TextureGL.o
+
+# target to build an object file
+src/TextureGL.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/TextureGL.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gl_test.dir/build.make CMakeFiles/gl_test.dir/src/TextureGL.cpp.o
+.PHONY : src/TextureGL.cpp.o
+
+src/TextureGL.i: src/TextureGL.cpp.i
+.PHONY : src/TextureGL.i
+
+# target to preprocess a source file
+src/TextureGL.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/TextureGL.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gl_test.dir/build.make CMakeFiles/gl_test.dir/src/TextureGL.cpp.i
+.PHONY : src/TextureGL.cpp.i
+
+src/TextureGL.s: src/TextureGL.cpp.s
+.PHONY : src/TextureGL.s
+
+# target to generate assembly for a file
+src/TextureGL.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/TextureGL.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gl_test.dir/build.make CMakeFiles/gl_test.dir/src/TextureGL.cpp.s
+.PHONY : src/TextureGL.cpp.s
 
 src/VideoSource.o: src/VideoSource.cpp.o
 .PHONY : src/VideoSource.o
@@ -466,6 +520,7 @@ src/graphics/Image.o: src/graphics/Image.cpp.o
 # target to build an object file
 src/graphics/Image.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/graphics/Image.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gl_test.dir/build.make CMakeFiles/gl_test.dir/src/graphics/Image.cpp.o
 .PHONY : src/graphics/Image.cpp.o
 
 src/graphics/Image.i: src/graphics/Image.cpp.i
@@ -474,6 +529,7 @@ src/graphics/Image.i: src/graphics/Image.cpp.i
 # target to preprocess a source file
 src/graphics/Image.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/graphics/Image.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gl_test.dir/build.make CMakeFiles/gl_test.dir/src/graphics/Image.cpp.i
 .PHONY : src/graphics/Image.cpp.i
 
 src/graphics/Image.s: src/graphics/Image.cpp.s
@@ -482,6 +538,7 @@ src/graphics/Image.s: src/graphics/Image.cpp.s
 # target to generate assembly for a file
 src/graphics/Image.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/graphics/Image.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gl_test.dir/build.make CMakeFiles/gl_test.dir/src/graphics/Image.cpp.s
 .PHONY : src/graphics/Image.cpp.s
 
 src/graphics/Texture.o: src/graphics/Texture.cpp.o
@@ -590,6 +647,9 @@ help:
 	@echo "... src/Logo.o"
 	@echo "... src/Logo.i"
 	@echo "... src/Logo.s"
+	@echo "... src/Mesh.o"
+	@echo "... src/Mesh.i"
+	@echo "... src/Mesh.s"
 	@echo "... src/Renderer.o"
 	@echo "... src/Renderer.i"
 	@echo "... src/Renderer.s"
@@ -599,6 +659,9 @@ help:
 	@echo "... src/Shader.o"
 	@echo "... src/Shader.i"
 	@echo "... src/Shader.s"
+	@echo "... src/TextureGL.o"
+	@echo "... src/TextureGL.i"
+	@echo "... src/TextureGL.s"
 	@echo "... src/VideoSource.o"
 	@echo "... src/VideoSource.i"
 	@echo "... src/VideoSource.s"

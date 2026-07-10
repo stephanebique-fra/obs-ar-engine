@@ -46,7 +46,7 @@ int main()
         }
 
         renderer.beginFrame();
-        renderer.drawTriangle();
+        renderer.drawQuad();
         SDL_GL_SwapWindow(window);
     }
 

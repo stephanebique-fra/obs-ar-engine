@@ -32,6 +32,8 @@ add_executable(obs-ar-engine
     src/Logo.cpp
     src/Shader.cpp
     src/RendererGL.cpp
+    src/Mesh.cpp
+    src/TextureGL.cpp
 )
 
 target_include_directories(obs-ar-engine PRIVATE
@@ -57,6 +59,9 @@ add_executable(gl_test
     src/Shader.cpp
     src/RendererGL.cpp
     third_party/glad/src/gl.c
+    src/Mesh.cpp
+    src/TextureGL.cpp
+    src/graphics/Image.cpp
 )
 
 target_include_directories(gl_test PRIVATE
