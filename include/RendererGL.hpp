@@ -2,6 +2,7 @@
 
 #include "Shader.hpp"
 #include "Mesh.hpp"
+#include "TextureGL.hpp"
 
 #include <glad/gl.h>
 
@@ -25,4 +26,5 @@ private:
 private:
     Shader m_shader;
     Mesh m_mesh;
+    TextureGL m_texture;
 };

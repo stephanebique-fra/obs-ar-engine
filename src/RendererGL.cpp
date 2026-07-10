@@ -46,11 +46,16 @@ bool RendererGL::initialize()
     if (!m_shader.load(vertex, fragment))
         return false;
 
+    if (!m_texture.load("assets/images/logo.png"))
+        return false;
+    m_shader.use();
+    m_shader.setInt("uTexture", 0);
     return m_mesh.createQuad();
 }
 
 void RendererGL::destroy()
 {
+    m_texture.destroy();
     m_mesh.destroy();
 }
 
@@ -64,6 +69,8 @@ void RendererGL::beginFrame()
         0.1f,
         1.0f);
 
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glClear(GL_COLOR_BUFFER_BIT);
 }
 
@@ -74,5 +81,8 @@ void RendererGL::endFrame()
 void RendererGL::drawQuad()
 {
     m_shader.use();
+
+    m_texture.bind(0);
+
     m_mesh.draw();
 }

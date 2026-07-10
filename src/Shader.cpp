@@ -113,3 +113,16 @@ unsigned int Shader::program() const
 {
     return m_program;
 }
+
+void Shader::setInt(
+    const std::string& name,
+    int value) const
+{
+    GLint location =
+        glGetUniformLocation(
+            m_program,
+            name.c_str());
+
+    if (location >= 0)
+        glUniform1i(location, value);
+}

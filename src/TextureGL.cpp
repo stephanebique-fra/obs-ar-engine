@@ -20,9 +20,10 @@ bool TextureGL::load(const std::string& filename)
         std::cout << "Unable to load image : "
                   << filename
                   << '\n';
-
         return false;
     }
+
+
 
     m_width = image.width();
     m_height = image.height();
@@ -50,6 +51,8 @@ bool TextureGL::load(const std::string& filename)
         GL_TEXTURE_2D,
         GL_TEXTURE_WRAP_T,
         GL_CLAMP_TO_EDGE);
+
+    glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 
     glTexImage2D(
         GL_TEXTURE_2D,

@@ -15,6 +15,8 @@ public:
 
     unsigned int program() const;
 
+    void setInt(const std::string& name, int value) const;
+
 private:
     bool compile(unsigned int shader,
                  const std::string& source);
