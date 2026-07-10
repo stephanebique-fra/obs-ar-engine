@@ -164,4 +164,6 @@ CMakeFiles/obs-ar-engine.dir/src/Window.cpp.o: \
   /opt/homebrew/include/SDL3/SDL_timer.h \
   /opt/homebrew/include/SDL3/SDL_tray.h \
   /opt/homebrew/include/SDL3/SDL_version.h \
-  /opt/homebrew/include/SDL3/SDL_oldnames.h
+  /opt/homebrew/include/SDL3/SDL_oldnames.h \
+  /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/third_party/glad/include/glad/gl.h \
+  /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/third_party/glad/include/KHR/khrplatform.h

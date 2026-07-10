@@ -25,11 +25,13 @@ file(REMOVE_RECURSE
   "CMakeFiles/obs-ar-engine.dir/src/graphics/Texture.cpp.o.d"
   "CMakeFiles/obs-ar-engine.dir/src/main.cpp.o"
   "CMakeFiles/obs-ar-engine.dir/src/main.cpp.o.d"
+  "CMakeFiles/obs-ar-engine.dir/third_party/glad/src/gl.c.o"
+  "CMakeFiles/obs-ar-engine.dir/third_party/glad/src/gl.c.o.d"
   "obs-ar-engine"
   "obs-ar-engine.pdb"
 )
 
 # Per-language clean rules from dependency scanning.
-foreach(lang CXX)
+foreach(lang C CXX)
   include(CMakeFiles/obs-ar-engine.dir/cmake_clean_${lang}.cmake OPTIONAL)
 endforeach()

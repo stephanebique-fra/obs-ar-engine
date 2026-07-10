@@ -441,6 +441,30 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+third_party/glad/src/gl.o: third_party/glad/src/gl.c.o
+.PHONY : third_party/glad/src/gl.o
+
+# target to build an object file
+third_party/glad/src/gl.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/third_party/glad/src/gl.c.o
+.PHONY : third_party/glad/src/gl.c.o
+
+third_party/glad/src/gl.i: third_party/glad/src/gl.c.i
+.PHONY : third_party/glad/src/gl.i
+
+# target to preprocess a source file
+third_party/glad/src/gl.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/third_party/glad/src/gl.c.i
+.PHONY : third_party/glad/src/gl.c.i
+
+third_party/glad/src/gl.s: third_party/glad/src/gl.c.s
+.PHONY : third_party/glad/src/gl.s
+
+# target to generate assembly for a file
+third_party/glad/src/gl.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/third_party/glad/src/gl.c.s
+.PHONY : third_party/glad/src/gl.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -489,6 +513,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... third_party/glad/src/gl.o"
+	@echo "... third_party/glad/src/gl.i"
+	@echo "... third_party/glad/src/gl.s"
 .PHONY : help
 
 

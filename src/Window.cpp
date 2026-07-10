@@ -1,4 +1,5 @@
 #include "Window.hpp"
+#include <glad/gl.h>
 
 Window::Window()
 {
@@ -51,6 +52,11 @@ bool Window::create(
     SDL_GL_MakeCurrent(
         m_window,
         m_glContext);
+
+    if (!gladLoadGL((GLADloadfunc)SDL_GL_GetProcAddress))
+    {
+        return false;
+    }
 
     SDL_GL_SetSwapInterval(1);
 

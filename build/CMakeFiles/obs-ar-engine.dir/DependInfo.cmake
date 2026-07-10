@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/third_party/glad/src/gl.c" "CMakeFiles/obs-ar-engine.dir/third_party/glad/src/gl.c.o" "gcc" "CMakeFiles/obs-ar-engine.dir/third_party/glad/src/gl.c.o.d"
   "/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/src/Application.cpp" "CMakeFiles/obs-ar-engine.dir/src/Application.cpp.o" "gcc" "CMakeFiles/obs-ar-engine.dir/src/Application.cpp.o.d"
   "/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/src/Calibration.cpp" "CMakeFiles/obs-ar-engine.dir/src/Calibration.cpp.o" "gcc" "CMakeFiles/obs-ar-engine.dir/src/Calibration.cpp.o.d"
   "/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/src/Camera2D.cpp" "CMakeFiles/obs-ar-engine.dir/src/Camera2D.cpp.o" "gcc" "CMakeFiles/obs-ar-engine.dir/src/Camera2D.cpp.o.d"
