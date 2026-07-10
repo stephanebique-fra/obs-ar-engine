@@ -129,6 +129,19 @@ obs-ar-engine/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/build
 .PHONY : obs-ar-engine/fast
 
+#=============================================================================
+# Target rules for targets named gl_test
+
+# Build rule for target.
+gl_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gl_test
+.PHONY : gl_test
+
+# fast build rule for target.
+gl_test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gl_test.dir/build.make CMakeFiles/gl_test.dir/build
+.PHONY : gl_test/fast
+
 src/Application.o: src/Application.cpp.o
 .PHONY : src/Application.o
 
@@ -321,6 +334,60 @@ src/Renderer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Renderer.cpp.s
 .PHONY : src/Renderer.cpp.s
 
+src/RendererGL.o: src/RendererGL.cpp.o
+.PHONY : src/RendererGL.o
+
+# target to build an object file
+src/RendererGL.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/RendererGL.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gl_test.dir/build.make CMakeFiles/gl_test.dir/src/RendererGL.cpp.o
+.PHONY : src/RendererGL.cpp.o
+
+src/RendererGL.i: src/RendererGL.cpp.i
+.PHONY : src/RendererGL.i
+
+# target to preprocess a source file
+src/RendererGL.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/RendererGL.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gl_test.dir/build.make CMakeFiles/gl_test.dir/src/RendererGL.cpp.i
+.PHONY : src/RendererGL.cpp.i
+
+src/RendererGL.s: src/RendererGL.cpp.s
+.PHONY : src/RendererGL.s
+
+# target to generate assembly for a file
+src/RendererGL.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/RendererGL.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gl_test.dir/build.make CMakeFiles/gl_test.dir/src/RendererGL.cpp.s
+.PHONY : src/RendererGL.cpp.s
+
+src/Shader.o: src/Shader.cpp.o
+.PHONY : src/Shader.o
+
+# target to build an object file
+src/Shader.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Shader.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gl_test.dir/build.make CMakeFiles/gl_test.dir/src/Shader.cpp.o
+.PHONY : src/Shader.cpp.o
+
+src/Shader.i: src/Shader.cpp.i
+.PHONY : src/Shader.i
+
+# target to preprocess a source file
+src/Shader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Shader.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gl_test.dir/build.make CMakeFiles/gl_test.dir/src/Shader.cpp.i
+.PHONY : src/Shader.cpp.i
+
+src/Shader.s: src/Shader.cpp.s
+.PHONY : src/Shader.s
+
+# target to generate assembly for a file
+src/Shader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Shader.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gl_test.dir/build.make CMakeFiles/gl_test.dir/src/Shader.cpp.s
+.PHONY : src/Shader.cpp.s
+
 src/VideoSource.o: src/VideoSource.cpp.o
 .PHONY : src/VideoSource.o
 
@@ -368,6 +435,30 @@ src/Window.s: src/Window.cpp.s
 src/Window.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Window.cpp.s
 .PHONY : src/Window.cpp.s
+
+src/gl_test.o: src/gl_test.cpp.o
+.PHONY : src/gl_test.o
+
+# target to build an object file
+src/gl_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gl_test.dir/build.make CMakeFiles/gl_test.dir/src/gl_test.cpp.o
+.PHONY : src/gl_test.cpp.o
+
+src/gl_test.i: src/gl_test.cpp.i
+.PHONY : src/gl_test.i
+
+# target to preprocess a source file
+src/gl_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gl_test.dir/build.make CMakeFiles/gl_test.dir/src/gl_test.cpp.i
+.PHONY : src/gl_test.cpp.i
+
+src/gl_test.s: src/gl_test.cpp.s
+.PHONY : src/gl_test.s
+
+# target to generate assembly for a file
+src/gl_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gl_test.dir/build.make CMakeFiles/gl_test.dir/src/gl_test.cpp.s
+.PHONY : src/gl_test.cpp.s
 
 src/graphics/Image.o: src/graphics/Image.cpp.o
 .PHONY : src/graphics/Image.o
@@ -447,6 +538,7 @@ third_party/glad/src/gl.o: third_party/glad/src/gl.c.o
 # target to build an object file
 third_party/glad/src/gl.c.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/third_party/glad/src/gl.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gl_test.dir/build.make CMakeFiles/gl_test.dir/third_party/glad/src/gl.c.o
 .PHONY : third_party/glad/src/gl.c.o
 
 third_party/glad/src/gl.i: third_party/glad/src/gl.c.i
@@ -455,6 +547,7 @@ third_party/glad/src/gl.i: third_party/glad/src/gl.c.i
 # target to preprocess a source file
 third_party/glad/src/gl.c.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/third_party/glad/src/gl.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gl_test.dir/build.make CMakeFiles/gl_test.dir/third_party/glad/src/gl.c.i
 .PHONY : third_party/glad/src/gl.c.i
 
 third_party/glad/src/gl.s: third_party/glad/src/gl.c.s
@@ -463,6 +556,7 @@ third_party/glad/src/gl.s: third_party/glad/src/gl.c.s
 # target to generate assembly for a file
 third_party/glad/src/gl.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/third_party/glad/src/gl.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gl_test.dir/build.make CMakeFiles/gl_test.dir/third_party/glad/src/gl.c.s
 .PHONY : third_party/glad/src/gl.c.s
 
 # Help Target
@@ -473,6 +567,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... gl_test"
 	@echo "... obs-ar-engine"
 	@echo "... src/Application.o"
 	@echo "... src/Application.i"
@@ -498,12 +593,21 @@ help:
 	@echo "... src/Renderer.o"
 	@echo "... src/Renderer.i"
 	@echo "... src/Renderer.s"
+	@echo "... src/RendererGL.o"
+	@echo "... src/RendererGL.i"
+	@echo "... src/RendererGL.s"
+	@echo "... src/Shader.o"
+	@echo "... src/Shader.i"
+	@echo "... src/Shader.s"
 	@echo "... src/VideoSource.o"
 	@echo "... src/VideoSource.i"
 	@echo "... src/VideoSource.s"
 	@echo "... src/Window.o"
 	@echo "... src/Window.i"
 	@echo "... src/Window.s"
+	@echo "... src/gl_test.o"
+	@echo "... src/gl_test.i"
+	@echo "... src/gl_test.s"
 	@echo "... src/graphics/Image.o"
 	@echo "... src/graphics/Image.i"
 	@echo "... src/graphics/Image.s"
