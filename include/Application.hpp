@@ -9,6 +9,7 @@
 #include <cstddef>
 #include "Homography.hpp"
 #include "Logo.hpp"
+#include "RendererGL.hpp"
 
 class Application
 {
@@ -30,4 +31,5 @@ private:
     bool m_editCalibration = false;
     Homography m_homography;
     Logo m_logo;
+    RendererGL m_rendererGL;
 };

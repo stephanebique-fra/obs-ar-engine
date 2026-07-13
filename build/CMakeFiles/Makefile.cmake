@@ -163,5 +163,4 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/obs-ar-engine.dir/DependInfo.cmake"
-  "CMakeFiles/gl_test.dir/DependInfo.cmake"
   )

@@ -15,6 +15,9 @@ bool Window::create(
     int width,
     int height)
 {
+    m_width = width;
+    m_height = height;
+
     if (!SDL_Init(SDL_INIT_VIDEO | SDL_INIT_CAMERA))
         return false;
 
@@ -101,14 +104,20 @@ bool Window::pollEvent(SDL_Event& event)
 
 void Window::clear()
 {
-    SDL_SetRenderDrawColor(
-        m_renderer,
-        30,
-        30,
-        30,
-        255);
+    glViewport(
+        0,
+        0,
+        m_width,
+        m_height);
 
-    SDL_RenderClear(m_renderer);
+    glClearColor(
+        0.12f,
+        0.12f,
+        0.12f,
+        1.0f);
+
+    glClear(
+        GL_COLOR_BUFFER_BIT);
 }
 
 void Window::present()

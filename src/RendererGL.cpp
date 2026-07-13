@@ -1,5 +1,6 @@
 #include "RendererGL.hpp"
 
+
 #include <fstream>
 #include <iostream>
 #include <sstream>
@@ -85,4 +86,32 @@ void RendererGL::drawQuad()
     m_texture.bind(0);
 
     m_mesh.draw();
+}
+void RendererGL::drawTexture(const TextureGL& texture)
+{
+    m_shader.use();
+
+    texture.bind(0);
+
+    m_mesh.draw();
+}
+void RendererGL::drawBackground(const ImageFrame& frame)
+{
+    if (!frame.isValid())
+        return;
+
+    if (!m_backgroundCreated)
+    {
+        m_backgroundTexture.create(
+            frame.width,
+            frame.height,
+            GL_RGBA);
+
+        m_backgroundCreated = true;
+    }
+
+    m_backgroundTexture.update(
+        frame.pixels.data());
+
+    drawTexture(m_backgroundTexture);
 }

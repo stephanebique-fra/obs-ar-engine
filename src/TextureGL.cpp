@@ -11,60 +11,31 @@ TextureGL::~TextureGL()
     destroy();
 }
 
-bool TextureGL::load(const std::string& filename)
+bool TextureGL::load(const std::string &filename)
 {
     Image image;
 
     if (!image.load(filename))
     {
-        std::cout << "Unable to load image : "
-                  << filename
-                  << '\n';
+        std::cout
+            << "Unable to load image : "
+            << filename
+            << '\n';
+
         return false;
     }
 
+    if (!create(
+            image.width(),
+            image.height(),
+            GL_RGBA))
+    {
+        return false;
+    }
 
-
-    m_width = image.width();
-    m_height = image.height();
-
-    glGenTextures(1, &m_texture);
+    update(image.pixels());
 
     glBindTexture(GL_TEXTURE_2D, m_texture);
-
-    glTexParameteri(
-        GL_TEXTURE_2D,
-        GL_TEXTURE_MIN_FILTER,
-        GL_LINEAR_MIPMAP_LINEAR);
-
-    glTexParameteri(
-        GL_TEXTURE_2D,
-        GL_TEXTURE_MAG_FILTER,
-        GL_LINEAR);
-
-    glTexParameteri(
-        GL_TEXTURE_2D,
-        GL_TEXTURE_WRAP_S,
-        GL_CLAMP_TO_EDGE);
-
-    glTexParameteri(
-        GL_TEXTURE_2D,
-        GL_TEXTURE_WRAP_T,
-        GL_CLAMP_TO_EDGE);
-
-    glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-
-    glTexImage2D(
-        GL_TEXTURE_2D,
-        0,
-        GL_RGBA8,
-        m_width,
-        m_height,
-        0,
-        GL_RGBA,
-        GL_UNSIGNED_BYTE,
-        image.pixels());
-
     glGenerateMipmap(GL_TEXTURE_2D);
     glBindTexture(GL_TEXTURE_2D, 0);
 
@@ -94,4 +65,82 @@ int TextureGL::width() const
 int TextureGL::height() const
 {
     return m_height;
+}
+bool TextureGL::create(
+    int width,
+    int height,
+    GLenum format)
+{
+    destroy();
+
+    m_width = width;
+    m_height = height;
+    m_format = format;
+
+    glGenTextures(1, &m_texture);
+
+    glBindTexture(GL_TEXTURE_2D, m_texture);
+
+    glTexParameteri(
+        GL_TEXTURE_2D,
+        GL_TEXTURE_MIN_FILTER,
+        GL_LINEAR);
+
+    glTexParameteri(
+        GL_TEXTURE_2D,
+        GL_TEXTURE_MAG_FILTER,
+        GL_LINEAR);
+
+    glTexParameteri(
+        GL_TEXTURE_2D,
+        GL_TEXTURE_WRAP_S,
+        GL_CLAMP_TO_EDGE);
+
+    glTexParameteri(
+        GL_TEXTURE_2D,
+        GL_TEXTURE_WRAP_T,
+        GL_CLAMP_TO_EDGE);
+
+    glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+
+    glTexImage2D(
+        GL_TEXTURE_2D,
+        0,
+        GL_RGBA8,
+        width,
+        height,
+        0,
+        format,
+        GL_UNSIGNED_BYTE,
+        nullptr);
+
+    glBindTexture(GL_TEXTURE_2D, 0);
+
+    return true;
+}
+void TextureGL::update(
+    const void *pixels)
+{
+    glBindTexture(
+        GL_TEXTURE_2D,
+        m_texture);
+
+    glTexSubImage2D(
+        GL_TEXTURE_2D,
+        0,
+        0,
+        0,
+        m_width,
+        m_height,
+        m_format,
+        GL_UNSIGNED_BYTE,
+        pixels);
+
+    glBindTexture(
+        GL_TEXTURE_2D,
+        0);
+}
+GLenum TextureGL::format() const
+{
+    return m_format;
 }

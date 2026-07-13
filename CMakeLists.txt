@@ -53,23 +53,3 @@ add_custom_command(TARGET obs-ar-engine POST_BUILD
     $<TARGET_FILE_DIR:obs-ar-engine>/assets
 )
 
-
-add_executable(gl_test
-    src/gl_test.cpp
-    src/Shader.cpp
-    src/RendererGL.cpp
-    third_party/glad/src/gl.c
-    src/Mesh.cpp
-    src/TextureGL.cpp
-    src/graphics/Image.cpp
-)
-
-target_include_directories(gl_test PRIVATE
-    include
-    third_party/glad/include
-)
-
-target_link_libraries(gl_test PRIVATE
-    SDL3::SDL3
-    ${OpenGL_LIBRARY}
-)

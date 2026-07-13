@@ -20,9 +20,19 @@ public:
     int width() const;
     int height() const;
 
+    bool create(
+        int width,
+        int height,
+        GLenum format);
+
+    void update(
+        const void* pixels);
+    GLenum format() const;   
+
 private:
     GLuint m_texture = 0;
 
     int m_width = 0;
     int m_height = 0;
+    GLenum m_format = GL_RGBA;
 };

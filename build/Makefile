@@ -129,19 +129,6 @@ obs-ar-engine/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/build
 .PHONY : obs-ar-engine/fast
 
-#=============================================================================
-# Target rules for targets named gl_test
-
-# Build rule for target.
-gl_test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gl_test
-.PHONY : gl_test
-
-# fast build rule for target.
-gl_test/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gl_test.dir/build.make CMakeFiles/gl_test.dir/build
-.PHONY : gl_test/fast
-
 src/Application.o: src/Application.cpp.o
 .PHONY : src/Application.o
 
@@ -316,7 +303,6 @@ src/Mesh.o: src/Mesh.cpp.o
 # target to build an object file
 src/Mesh.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Mesh.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gl_test.dir/build.make CMakeFiles/gl_test.dir/src/Mesh.cpp.o
 .PHONY : src/Mesh.cpp.o
 
 src/Mesh.i: src/Mesh.cpp.i
@@ -325,7 +311,6 @@ src/Mesh.i: src/Mesh.cpp.i
 # target to preprocess a source file
 src/Mesh.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Mesh.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gl_test.dir/build.make CMakeFiles/gl_test.dir/src/Mesh.cpp.i
 .PHONY : src/Mesh.cpp.i
 
 src/Mesh.s: src/Mesh.cpp.s
@@ -334,7 +319,6 @@ src/Mesh.s: src/Mesh.cpp.s
 # target to generate assembly for a file
 src/Mesh.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Mesh.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gl_test.dir/build.make CMakeFiles/gl_test.dir/src/Mesh.cpp.s
 .PHONY : src/Mesh.cpp.s
 
 src/Renderer.o: src/Renderer.cpp.o
@@ -367,7 +351,6 @@ src/RendererGL.o: src/RendererGL.cpp.o
 # target to build an object file
 src/RendererGL.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/RendererGL.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gl_test.dir/build.make CMakeFiles/gl_test.dir/src/RendererGL.cpp.o
 .PHONY : src/RendererGL.cpp.o
 
 src/RendererGL.i: src/RendererGL.cpp.i
@@ -376,7 +359,6 @@ src/RendererGL.i: src/RendererGL.cpp.i
 # target to preprocess a source file
 src/RendererGL.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/RendererGL.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gl_test.dir/build.make CMakeFiles/gl_test.dir/src/RendererGL.cpp.i
 .PHONY : src/RendererGL.cpp.i
 
 src/RendererGL.s: src/RendererGL.cpp.s
@@ -385,7 +367,6 @@ src/RendererGL.s: src/RendererGL.cpp.s
 # target to generate assembly for a file
 src/RendererGL.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/RendererGL.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gl_test.dir/build.make CMakeFiles/gl_test.dir/src/RendererGL.cpp.s
 .PHONY : src/RendererGL.cpp.s
 
 src/Shader.o: src/Shader.cpp.o
@@ -394,7 +375,6 @@ src/Shader.o: src/Shader.cpp.o
 # target to build an object file
 src/Shader.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Shader.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gl_test.dir/build.make CMakeFiles/gl_test.dir/src/Shader.cpp.o
 .PHONY : src/Shader.cpp.o
 
 src/Shader.i: src/Shader.cpp.i
@@ -403,7 +383,6 @@ src/Shader.i: src/Shader.cpp.i
 # target to preprocess a source file
 src/Shader.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Shader.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gl_test.dir/build.make CMakeFiles/gl_test.dir/src/Shader.cpp.i
 .PHONY : src/Shader.cpp.i
 
 src/Shader.s: src/Shader.cpp.s
@@ -412,7 +391,6 @@ src/Shader.s: src/Shader.cpp.s
 # target to generate assembly for a file
 src/Shader.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Shader.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gl_test.dir/build.make CMakeFiles/gl_test.dir/src/Shader.cpp.s
 .PHONY : src/Shader.cpp.s
 
 src/TextureGL.o: src/TextureGL.cpp.o
@@ -421,7 +399,6 @@ src/TextureGL.o: src/TextureGL.cpp.o
 # target to build an object file
 src/TextureGL.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/TextureGL.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gl_test.dir/build.make CMakeFiles/gl_test.dir/src/TextureGL.cpp.o
 .PHONY : src/TextureGL.cpp.o
 
 src/TextureGL.i: src/TextureGL.cpp.i
@@ -430,7 +407,6 @@ src/TextureGL.i: src/TextureGL.cpp.i
 # target to preprocess a source file
 src/TextureGL.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/TextureGL.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gl_test.dir/build.make CMakeFiles/gl_test.dir/src/TextureGL.cpp.i
 .PHONY : src/TextureGL.cpp.i
 
 src/TextureGL.s: src/TextureGL.cpp.s
@@ -439,7 +415,6 @@ src/TextureGL.s: src/TextureGL.cpp.s
 # target to generate assembly for a file
 src/TextureGL.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/TextureGL.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gl_test.dir/build.make CMakeFiles/gl_test.dir/src/TextureGL.cpp.s
 .PHONY : src/TextureGL.cpp.s
 
 src/VideoSource.o: src/VideoSource.cpp.o
@@ -490,37 +465,12 @@ src/Window.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Window.cpp.s
 .PHONY : src/Window.cpp.s
 
-src/gl_test.o: src/gl_test.cpp.o
-.PHONY : src/gl_test.o
-
-# target to build an object file
-src/gl_test.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gl_test.dir/build.make CMakeFiles/gl_test.dir/src/gl_test.cpp.o
-.PHONY : src/gl_test.cpp.o
-
-src/gl_test.i: src/gl_test.cpp.i
-.PHONY : src/gl_test.i
-
-# target to preprocess a source file
-src/gl_test.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gl_test.dir/build.make CMakeFiles/gl_test.dir/src/gl_test.cpp.i
-.PHONY : src/gl_test.cpp.i
-
-src/gl_test.s: src/gl_test.cpp.s
-.PHONY : src/gl_test.s
-
-# target to generate assembly for a file
-src/gl_test.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gl_test.dir/build.make CMakeFiles/gl_test.dir/src/gl_test.cpp.s
-.PHONY : src/gl_test.cpp.s
-
 src/graphics/Image.o: src/graphics/Image.cpp.o
 .PHONY : src/graphics/Image.o
 
 # target to build an object file
 src/graphics/Image.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/graphics/Image.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gl_test.dir/build.make CMakeFiles/gl_test.dir/src/graphics/Image.cpp.o
 .PHONY : src/graphics/Image.cpp.o
 
 src/graphics/Image.i: src/graphics/Image.cpp.i
@@ -529,7 +479,6 @@ src/graphics/Image.i: src/graphics/Image.cpp.i
 # target to preprocess a source file
 src/graphics/Image.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/graphics/Image.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gl_test.dir/build.make CMakeFiles/gl_test.dir/src/graphics/Image.cpp.i
 .PHONY : src/graphics/Image.cpp.i
 
 src/graphics/Image.s: src/graphics/Image.cpp.s
@@ -538,7 +487,6 @@ src/graphics/Image.s: src/graphics/Image.cpp.s
 # target to generate assembly for a file
 src/graphics/Image.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/graphics/Image.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gl_test.dir/build.make CMakeFiles/gl_test.dir/src/graphics/Image.cpp.s
 .PHONY : src/graphics/Image.cpp.s
 
 src/graphics/Texture.o: src/graphics/Texture.cpp.o
@@ -595,7 +543,6 @@ third_party/glad/src/gl.o: third_party/glad/src/gl.c.o
 # target to build an object file
 third_party/glad/src/gl.c.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/third_party/glad/src/gl.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gl_test.dir/build.make CMakeFiles/gl_test.dir/third_party/glad/src/gl.c.o
 .PHONY : third_party/glad/src/gl.c.o
 
 third_party/glad/src/gl.i: third_party/glad/src/gl.c.i
@@ -604,7 +551,6 @@ third_party/glad/src/gl.i: third_party/glad/src/gl.c.i
 # target to preprocess a source file
 third_party/glad/src/gl.c.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/third_party/glad/src/gl.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gl_test.dir/build.make CMakeFiles/gl_test.dir/third_party/glad/src/gl.c.i
 .PHONY : third_party/glad/src/gl.c.i
 
 third_party/glad/src/gl.s: third_party/glad/src/gl.c.s
@@ -613,7 +559,6 @@ third_party/glad/src/gl.s: third_party/glad/src/gl.c.s
 # target to generate assembly for a file
 third_party/glad/src/gl.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/third_party/glad/src/gl.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gl_test.dir/build.make CMakeFiles/gl_test.dir/third_party/glad/src/gl.c.s
 .PHONY : third_party/glad/src/gl.c.s
 
 # Help Target
@@ -624,7 +569,6 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... gl_test"
 	@echo "... obs-ar-engine"
 	@echo "... src/Application.o"
 	@echo "... src/Application.i"
@@ -668,9 +612,6 @@ help:
 	@echo "... src/Window.o"
 	@echo "... src/Window.i"
 	@echo "... src/Window.s"
-	@echo "... src/gl_test.o"
-	@echo "... src/gl_test.i"
-	@echo "... src/gl_test.s"
 	@echo "... src/graphics/Image.o"
 	@echo "... src/graphics/Image.i"
 	@echo "... src/graphics/Image.s"

@@ -1094,4 +1094,10 @@ CMakeFiles/obs-ar-engine.dir/src/main.cpp.o: \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/FibaMarker.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/Logo.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/graphics/Image.hpp \
-  /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/graphics/Texture.hpp
+  /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/graphics/Texture.hpp \
+  /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/RendererGL.hpp \
+  /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/Shader.hpp \
+  /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/Mesh.hpp \
+  /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/third_party/glad/include/glad/gl.h \
+  /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/third_party/glad/include/KHR/khrplatform.h \
+  /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/TextureGL.hpp
