@@ -273,6 +273,30 @@ src/Homography.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Homography.cpp.s
 .PHONY : src/Homography.cpp.s
 
+src/LineMesh.o: src/LineMesh.cpp.o
+.PHONY : src/LineMesh.o
+
+# target to build an object file
+src/LineMesh.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/LineMesh.cpp.o
+.PHONY : src/LineMesh.cpp.o
+
+src/LineMesh.i: src/LineMesh.cpp.i
+.PHONY : src/LineMesh.i
+
+# target to preprocess a source file
+src/LineMesh.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/LineMesh.cpp.i
+.PHONY : src/LineMesh.cpp.i
+
+src/LineMesh.s: src/LineMesh.cpp.s
+.PHONY : src/LineMesh.s
+
+# target to generate assembly for a file
+src/LineMesh.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/LineMesh.cpp.s
+.PHONY : src/LineMesh.cpp.s
+
 src/Logo.o: src/Logo.cpp.o
 .PHONY : src/Logo.o
 
@@ -588,6 +612,9 @@ help:
 	@echo "... src/Homography.o"
 	@echo "... src/Homography.i"
 	@echo "... src/Homography.s"
+	@echo "... src/LineMesh.o"
+	@echo "... src/LineMesh.i"
+	@echo "... src/LineMesh.s"
 	@echo "... src/Logo.o"
 	@echo "... src/Logo.i"
 	@echo "... src/Logo.s"
