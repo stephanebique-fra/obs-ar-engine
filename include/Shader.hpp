@@ -16,7 +16,11 @@ public:
     unsigned int program() const;
 
     void setInt(const std::string& name, int value) const;
-
+    void setVec4(const std::string& name,
+                float r,
+                float g,
+                float b,
+                float a) const;
 private:
     bool compile(unsigned int shader,
                  const std::string& source);

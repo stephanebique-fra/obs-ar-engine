@@ -303,19 +303,19 @@ void Application::run()
                   << (ok ? "OK" : "FAILED")
                   << '\n';
 
-        m_renderer.clear();
+        m_rendererGL.beginFrame();
+
         m_rendererGL.drawBackground(m_videoSource.frame());
 
         m_renderer.drawProjectedCourt(
             m_court,
             m_homography);
 
-        m_renderer.drawProjectedRectangle(
-            10.0f, // X (mètres)
-            6.0f,  // Y (mètres)
-            4.0f,  // Largeur
-            2.0f,  // Hauteur
-            {255, 0, 0, 255},
+        m_rendererGL.drawProjectedRectangle(
+            10.0f,
+            6.0f,
+            4.0f,
+            2.0f,
             m_homography);
 
         m_renderer.drawCalibration(
@@ -330,6 +330,8 @@ void Application::run()
 
             m_renderer.drawMarker(center.x, center.y);
         }
+        m_rendererGL.endFrame();
+
         m_renderer.present();
     }
 }

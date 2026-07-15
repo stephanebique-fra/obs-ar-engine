@@ -126,3 +126,25 @@ void Shader::setInt(
     if (location >= 0)
         glUniform1i(location, value);
 }
+void Shader::setVec4(
+    const std::string& name,
+    float r,
+    float g,
+    float b,
+    float a) const
+{
+    GLint location =
+        glGetUniformLocation(
+            m_program,
+            name.c_str());
+
+    if (location >= 0)
+    {
+        glUniform4f(
+            location,
+            r,
+            g,
+            b,
+            a);
+    }
+}

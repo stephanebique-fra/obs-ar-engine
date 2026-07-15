@@ -5,6 +5,7 @@
 #include "TextureGL.hpp"
 #include "ImageFrame.hpp"
 #include "Homography.hpp"
+#include "LineMesh.hpp"
 
 #include <glad/gl.h>
 
@@ -38,6 +39,10 @@ private:
 
 private:
     Shader m_shader;
+    Shader m_colorShader;
     Mesh m_mesh;
     TextureGL m_texture;
+    LineMesh m_lineMesh;
+    float toNdcX(float x) const;
+    float toNdcY(float y) const;
 };
