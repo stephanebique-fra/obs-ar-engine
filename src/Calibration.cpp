@@ -5,7 +5,7 @@
 #include <fstream>
 #include <string>
 
-void Calibration::setPoint(std::size_t index, const CalibrationPoint& point)
+void Calibration::setPoint(std::size_t index, const CalibrationPoint &point)
 {
     if (index >= m_points.size())
         return;
@@ -50,7 +50,7 @@ std::size_t Calibration::findNearestImagePoint(
     return nearest;
 }
 
-bool Calibration::save(const std::string& filename) const
+bool Calibration::save(const std::string &filename) const
 {
     std::ofstream file(filename);
 
@@ -75,7 +75,7 @@ bool Calibration::save(const std::string& filename) const
     return true;
 }
 
-bool Calibration::load(const std::string& filename)
+bool Calibration::load(const std::string &filename)
 {
     std::ifstream file(filename);
 
@@ -106,13 +106,35 @@ bool Calibration::load(const std::string& filename)
         point.courtX = std::stof(line.substr(p3 + 1, p4 - p3 - 1));
         point.courtY = std::stof(line.substr(p4 + 1));
 
+        switch (m_points.size())
+        {
+        case 0:
+            point.marker = FibaMarker::CourtTopLeft;
+            break;
+
+        case 1:
+            point.marker = FibaMarker::CourtTopRight;
+            break;
+
+        case 2:
+            point.marker = FibaMarker::CourtBottomRight;
+            break;
+
+        case 3:
+            point.marker = FibaMarker::CourtBottomLeft;
+            break;
+
+        default:
+            break;
+        }
+
         m_points.push_back(point);
     }
 
     return true;
 }
 
-void Calibration::addPoint(const CalibrationPoint& point)
+void Calibration::addPoint(const CalibrationPoint &point)
 {
     m_points.push_back(point);
 
@@ -124,7 +146,7 @@ std::size_t Calibration::pointCount() const
     return m_points.size();
 }
 
-const CalibrationPoint& Calibration::point(std::size_t index) const
+const CalibrationPoint &Calibration::point(std::size_t index) const
 {
     assert(index < m_points.size());
     return m_points[index];

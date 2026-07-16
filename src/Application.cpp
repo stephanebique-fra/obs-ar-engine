@@ -308,16 +308,31 @@ void Application::run()
 
         m_rendererGL.drawBackground(m_videoSource.frame());
 
+        std::cout
+            << "Homography valid = "
+            << m_homography.isValid()
+            << std::endl;
+
+        const auto &frame = m_videoSource.frame();
+
+        std::cout
+            << frame.width
+            << " x "
+            << frame.height
+            << " valid="
+            << frame.isValid()
+            << std::endl;
+
         m_rendererGL.drawProjectedCourt(
             m_court,
             m_homography);
 
-         m_rendererGL.drawProjectedRectangle(
-             10.0f,
-             6.0f,
-             4.0f,
-             2.0f,
-             m_homography);
+        m_rendererGL.drawProjectedRectangle(
+            10.0f,
+            6.0f,
+            4.0f,
+            2.0f,
+            m_homography);
 
         std::cout << "context before present: expected="
                   << m_window.glContext()
