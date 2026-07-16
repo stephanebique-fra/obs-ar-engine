@@ -297,30 +297,6 @@ src/LineMesh.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/LineMesh.cpp.s
 .PHONY : src/LineMesh.cpp.s
 
-src/Logo.o: src/Logo.cpp.o
-.PHONY : src/Logo.o
-
-# target to build an object file
-src/Logo.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Logo.cpp.o
-.PHONY : src/Logo.cpp.o
-
-src/Logo.i: src/Logo.cpp.i
-.PHONY : src/Logo.i
-
-# target to preprocess a source file
-src/Logo.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Logo.cpp.i
-.PHONY : src/Logo.cpp.i
-
-src/Logo.s: src/Logo.cpp.s
-.PHONY : src/Logo.s
-
-# target to generate assembly for a file
-src/Logo.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Logo.cpp.s
-.PHONY : src/Logo.cpp.s
-
 src/Mesh.o: src/Mesh.cpp.o
 .PHONY : src/Mesh.o
 
@@ -344,30 +320,6 @@ src/Mesh.s: src/Mesh.cpp.s
 src/Mesh.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Mesh.cpp.s
 .PHONY : src/Mesh.cpp.s
-
-src/Renderer.o: src/Renderer.cpp.o
-.PHONY : src/Renderer.o
-
-# target to build an object file
-src/Renderer.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Renderer.cpp.o
-.PHONY : src/Renderer.cpp.o
-
-src/Renderer.i: src/Renderer.cpp.i
-.PHONY : src/Renderer.i
-
-# target to preprocess a source file
-src/Renderer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Renderer.cpp.i
-.PHONY : src/Renderer.cpp.i
-
-src/Renderer.s: src/Renderer.cpp.s
-.PHONY : src/Renderer.s
-
-# target to generate assembly for a file
-src/Renderer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Renderer.cpp.s
-.PHONY : src/Renderer.cpp.s
 
 src/RendererGL.o: src/RendererGL.cpp.o
 .PHONY : src/RendererGL.o
@@ -513,30 +465,6 @@ src/graphics/Image.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/graphics/Image.cpp.s
 .PHONY : src/graphics/Image.cpp.s
 
-src/graphics/Texture.o: src/graphics/Texture.cpp.o
-.PHONY : src/graphics/Texture.o
-
-# target to build an object file
-src/graphics/Texture.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/graphics/Texture.cpp.o
-.PHONY : src/graphics/Texture.cpp.o
-
-src/graphics/Texture.i: src/graphics/Texture.cpp.i
-.PHONY : src/graphics/Texture.i
-
-# target to preprocess a source file
-src/graphics/Texture.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/graphics/Texture.cpp.i
-.PHONY : src/graphics/Texture.cpp.i
-
-src/graphics/Texture.s: src/graphics/Texture.cpp.s
-.PHONY : src/graphics/Texture.s
-
-# target to generate assembly for a file
-src/graphics/Texture.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/graphics/Texture.cpp.s
-.PHONY : src/graphics/Texture.cpp.s
-
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -615,15 +543,9 @@ help:
 	@echo "... src/LineMesh.o"
 	@echo "... src/LineMesh.i"
 	@echo "... src/LineMesh.s"
-	@echo "... src/Logo.o"
-	@echo "... src/Logo.i"
-	@echo "... src/Logo.s"
 	@echo "... src/Mesh.o"
 	@echo "... src/Mesh.i"
 	@echo "... src/Mesh.s"
-	@echo "... src/Renderer.o"
-	@echo "... src/Renderer.i"
-	@echo "... src/Renderer.s"
 	@echo "... src/RendererGL.o"
 	@echo "... src/RendererGL.i"
 	@echo "... src/RendererGL.s"
@@ -642,9 +564,6 @@ help:
 	@echo "... src/graphics/Image.o"
 	@echo "... src/graphics/Image.i"
 	@echo "... src/graphics/Image.s"
-	@echo "... src/graphics/Texture.o"
-	@echo "... src/graphics/Texture.i"
-	@echo "... src/graphics/Texture.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

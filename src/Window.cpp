@@ -1,5 +1,6 @@
 #include "Window.hpp"
 #include <glad/gl.h>
+#include <iostream>
 
 Window::Window()
 {
@@ -11,10 +12,12 @@ Window::~Window()
 }
 
 bool Window::create(
-    const char* title,
+    const char *title,
     int width,
     int height)
 {
+    std::cout << "========== WINDOW CREATE ==========" << std::endl;
+    
     m_width = width;
     m_height = height;
 
@@ -61,27 +64,36 @@ bool Window::create(
         return false;
     }
 
+    std::cout << "Vendor   : "
+              << glGetString(GL_VENDOR)
+              << std::endl;
+
+    std::cout << "Renderer : "
+              << glGetString(GL_RENDERER)
+              << std::endl;
+
+    std::cout << "Version  : "
+              << glGetString(GL_VERSION)
+              << std::endl;
+
+    GLint vao = 0;
+
+    glGetIntegerv(
+        GL_VERTEX_ARRAY_BINDING,
+        &vao);
+
+    std::cout
+        << "Current VAO = "
+        << vao
+        << std::endl;
+
     SDL_GL_SetSwapInterval(1);
-
-    m_renderer =
-        SDL_CreateRenderer(
-            m_window,
-            nullptr);
-
-    if (!m_renderer)
-        return false;
 
     return true;
 }
 
 void Window::destroy()
 {
-    if (m_renderer)
-    {
-        SDL_DestroyRenderer(m_renderer);
-        m_renderer = nullptr;
-    }
-
     if (m_glContext)
     {
         SDL_GL_DestroyContext(m_glContext);
@@ -97,7 +109,7 @@ void Window::destroy()
     SDL_Quit();
 }
 
-bool Window::pollEvent(SDL_Event& event)
+bool Window::pollEvent(SDL_Event &event)
 {
     return SDL_PollEvent(&event);
 }
@@ -122,18 +134,73 @@ void Window::clear()
 
 void Window::present()
 {
-    SDL_RenderPresent(m_renderer);
-    SDL_GL_SwapWindow(m_window);
+    std::cout << "context at present entry: expected="
+              << m_glContext
+              << " current=" << SDL_GL_GetCurrentContext()
+              << " matches="
+              << (m_glContext == SDL_GL_GetCurrentContext())
+              << '\n';
+
+    if (!makeGLCurrent())
+        return;
+
+    GLint viewport[4] = {};
+    GLint drawFramebuffer = 0;
+    GLint readFramebuffer = 0;
+    GLubyte centerPixel[4] = {};
+
+    glGetIntegerv(GL_VIEWPORT, viewport);
+    glGetIntegerv(GL_DRAW_FRAMEBUFFER_BINDING, &drawFramebuffer);
+    glGetIntegerv(GL_READ_FRAMEBUFFER_BINDING, &readFramebuffer);
+    glReadPixels(
+        viewport[2] / 2,
+        viewport[3] / 2,
+        1,
+        1,
+        GL_RGBA,
+        GL_UNSIGNED_BYTE,
+        centerPixel);
+
+    std::cout << "context at swap: expected="
+              << m_glContext
+              << " current=" << SDL_GL_GetCurrentContext()
+              << " matches="
+              << (m_glContext == SDL_GL_GetCurrentContext())
+              << " framebuffer=" << drawFramebuffer << '/' << readFramebuffer
+              << " viewport=" << viewport[0] << ',' << viewport[1]
+              << ' ' << viewport[2] << 'x' << viewport[3]
+              << " center-pixel="
+              << static_cast<int>(centerPixel[0]) << ','
+              << static_cast<int>(centerPixel[1]) << ','
+              << static_cast<int>(centerPixel[2]) << ','
+              << static_cast<int>(centerPixel[3])
+              << " read-error=" << glGetError()
+              << '\n';
+
+    const bool swapped = SDL_GL_SwapWindow(m_window);
+
+    std::cout << "SDL_GL_SwapWindow: success=" << swapped
+              << " error='" << SDL_GetError() << "'\n";
 }
 
-SDL_Window* Window::window() const
+bool Window::makeGLCurrent() const
+{
+    return SDL_GL_MakeCurrent(
+        m_window,
+        m_glContext);
+}
+
+bool Window::pixelSize(int& width, int& height) const
+{
+    return SDL_GetWindowSizeInPixels(
+        m_window,
+        &width,
+        &height);
+}
+
+SDL_Window *Window::window() const
 {
     return m_window;
-}
-
-SDL_Renderer* Window::renderer() const
-{
-    return m_renderer;
 }
 
 SDL_GLContext Window::glContext() const

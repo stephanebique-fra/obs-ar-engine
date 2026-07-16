@@ -15,23 +15,8 @@ bool Application::initialize()
     if (!m_window.create("OBS AR Engine", 1280, 720))
         return false;
 
-    if (!m_renderer.initialize(m_window.renderer()))
-        return false;
     if (!m_rendererGL.initialize())
         return false;
-    m_renderer.setLineThickness(0.05f);
-
-    m_logo.load(
-        m_window.renderer(),
-        "assets/images/logo.png");
-
-    m_logo.setPosition(
-        12.0f,
-        6.5f);
-
-    m_logo.setSize(
-        4.0f,
-        2.0f);
 
     m_videoSource.openDefaultCamera();
 
@@ -303,36 +288,47 @@ void Application::run()
                   << (ok ? "OK" : "FAILED")
                   << '\n';
 
-        m_rendererGL.beginFrame();
+        if (!m_window.makeGLCurrent())
+            continue;
+
+        std::cout << "context before GL: expected="
+                  << m_window.glContext()
+                  << " current=" << SDL_GL_GetCurrentContext()
+                  << " matches="
+                  << (m_window.glContext() == SDL_GL_GetCurrentContext())
+                  << '\n';
+
+        int pixelWidth = 0;
+        int pixelHeight = 0;
+
+        if (!m_window.pixelSize(pixelWidth, pixelHeight))
+            continue;
+
+        m_rendererGL.beginFrame(pixelWidth, pixelHeight);
 
         m_rendererGL.drawBackground(m_videoSource.frame());
 
-        m_renderer.drawProjectedCourt(
+        m_rendererGL.drawProjectedCourt(
             m_court,
             m_homography);
 
-        m_rendererGL.drawProjectedRectangle(
-            10.0f,
-            6.0f,
-            4.0f,
-            2.0f,
-            m_homography);
+        // m_rendererGL.drawProjectedRectangle(
+        //     10.0f,
+        //     6.0f,
+        //     4.0f,
+        //     2.0f,
+        //     m_homography);
 
-        m_renderer.drawCalibration(
-            m_calibration,
-            m_selectedCalibrationPoint,
-            10.0f);
+        std::cout << "context before present: expected="
+                  << m_window.glContext()
+                  << " current=" << SDL_GL_GetCurrentContext()
+                  << " matches="
+                  << (m_window.glContext() == SDL_GL_GetCurrentContext())
+                  << '\n';
 
-        if (m_homography.isValid())
-        {
-            const cv::Point2f center =
-                m_homography.courtToImage({14.0f, 7.5f});
-
-            m_renderer.drawMarker(center.x, center.y);
-        }
         m_rendererGL.endFrame();
 
-        m_renderer.present();
+        m_window.present();
     }
 }
 
@@ -340,6 +336,5 @@ void Application::shutdown()
 {
     m_calibration.save("calibration.txt");
     m_videoSource.close();
-    m_renderer.destroy();
     m_window.destroy();
 }

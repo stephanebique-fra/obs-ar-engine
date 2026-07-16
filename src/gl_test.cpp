@@ -45,7 +45,7 @@ int main()
                 running = false;
         }
 
-        renderer.beginFrame();
+        renderer.beginFrame(1280, 720);
         renderer.drawQuad();
         SDL_GL_SwapWindow(window);
     }

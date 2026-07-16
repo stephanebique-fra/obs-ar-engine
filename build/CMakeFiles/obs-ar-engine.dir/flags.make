@@ -5,17 +5,13 @@
 # compile CXX with /usr/bin/c++
 C_DEFINES = 
 
-C_INCLUDES = -I/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include -I/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/third_party -I/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/third_party/glad/include -F/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks -isystem /opt/homebrew/include -isystem /opt/homebrew/Cellar/opencv/4.13.0_15/include/opencv4
+C_INCLUDES = -I/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include -I/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/third_party -I/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/third_party/glad/include -I/opt/homebrew/include -F/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks -isystem /opt/homebrew/Cellar/opencv/4.13.0_15/include/opencv4
 
-C_FLAGSarm64 =  -arch arm64
-
-C_FLAGS =  -arch arm64
+C_FLAGS = 
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include -I/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/third_party -I/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/third_party/glad/include -F/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks -isystem /opt/homebrew/include -isystem /opt/homebrew/Cellar/opencv/4.13.0_15/include/opencv4
+CXX_INCLUDES = -I/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include -I/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/third_party -I/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/third_party/glad/include -I/opt/homebrew/include -F/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks -isystem /opt/homebrew/Cellar/opencv/4.13.0_15/include/opencv4
 
-CXX_FLAGSarm64 = -std=gnu++20 -arch arm64
-
-CXX_FLAGS = -std=gnu++20 -arch arm64
+CXX_FLAGS = -std=gnu++20
 

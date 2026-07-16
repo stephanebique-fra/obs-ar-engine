@@ -1,4 +1,5 @@
 #include "LineMesh.hpp"
+#include <iostream>
 
 LineMesh::LineMesh()
 {
@@ -57,10 +58,12 @@ void LineMesh::destroy()
 }
 
 void LineMesh::update(
-    const std::vector<float>& vertices)
+    const std::vector<float> &vertices)
 {
     m_vertexCount =
         static_cast<GLsizei>(vertices.size() / 2);
+
+    glBindVertexArray(m_vao);
 
     glBindBuffer(
         GL_ARRAY_BUFFER,
@@ -71,8 +74,9 @@ void LineMesh::update(
         vertices.size() * sizeof(float),
         vertices.data(),
         GL_DYNAMIC_DRAW);
-}
 
+    glBindVertexArray(0);
+}
 void LineMesh::draw(GLenum mode) const
 {
     if (m_vertexCount == 0)
@@ -80,10 +84,20 @@ void LineMesh::draw(GLenum mode) const
 
     glBindVertexArray(m_vao);
 
+    std::cout << "VertexCount = "
+              << m_vertexCount
+              << std::endl;
+
     glDrawArrays(
         mode,
         0,
         m_vertexCount);
+
+    GLenum err = glGetError();
+
+    std::cout << "glDrawArrays error = "
+              << err
+              << std::endl;
 
     glBindVertexArray(0);
 }

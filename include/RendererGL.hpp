@@ -6,6 +6,8 @@
 #include "ImageFrame.hpp"
 #include "Homography.hpp"
 #include "LineMesh.hpp"
+#include "Court.hpp"
+#include <vector>
 
 #include <glad/gl.h>
 
@@ -18,7 +20,7 @@ public:
     bool initialize();
     void destroy();
 
-    void beginFrame();
+    void beginFrame(int width, int height);
     void endFrame();
 
     void drawQuad();
@@ -30,6 +32,10 @@ public:
         float width,
         float height,
         const Homography &homography);
+    void drawProjectedCourt(
+    const Court& court,
+    const Homography& homography);
+    void drawTestTriangle();
 
 private:
     bool createTriangle();
@@ -43,6 +49,10 @@ private:
     Mesh m_mesh;
     TextureGL m_texture;
     LineMesh m_lineMesh;
+    void appendProjectedArc(
+        std::vector<float> &vertices,
+        const Court::Arc &arc,
+        const Homography &homography);
     float toNdcX(float x) const;
     float toNdcY(float y) const;
 };

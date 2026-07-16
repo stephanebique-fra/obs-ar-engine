@@ -1,5 +1,6 @@
 #include "RendererGL.hpp"
 
+#include <array>
 #include <fstream>
 #include <iostream>
 #include <sstream>
@@ -18,6 +19,13 @@ namespace
 
         return stream.str();
     }
+
+    void printEnabledState(const char *name, GLenum capability)
+    {
+        std::cout << name << " = "
+                  << (glIsEnabled(capability) == GL_TRUE)
+                  << '\n';
+    }
 }
 
 RendererGL::RendererGL()
@@ -31,6 +39,7 @@ RendererGL::~RendererGL()
 
 bool RendererGL::initialize()
 {
+    std::cout << "RendererGL::initialize()" << std::endl;
     const std::string vertex =
         loadTextFile("assets/shaders/basic.vert");
 
@@ -73,6 +82,7 @@ bool RendererGL::initialize()
     if (!m_lineMesh.initialize())
         return false;
 
+    std::cout << "RendererGL initialized OK" << std::endl;
     return true;
 }
 
@@ -83,9 +93,9 @@ void RendererGL::destroy()
     m_mesh.destroy();
 }
 
-void RendererGL::beginFrame()
+void RendererGL::beginFrame(int width, int height)
 {
-    glViewport(0, 0, 1280, 720);
+    glViewport(0, 0, width, height);
 
     glClearColor(
         0.1f,
@@ -152,7 +162,7 @@ void RendererGL::drawProjectedRectangle(
     float y,
     float width,
     float height,
-    const Homography& homography)
+    const Homography &homography)
 {
     if (!homography.isValid())
         return;
@@ -170,25 +180,24 @@ void RendererGL::drawProjectedRectangle(
         homography.courtToImage({x, y + height});
 
     std::vector<float> vertices =
-    {
-        toNdcX(p1.x), toNdcY(p1.y),
-        toNdcX(p2.x), toNdcY(p2.y),
+        {
+            toNdcX(p1.x), toNdcY(p1.y),
+            toNdcX(p2.x), toNdcY(p2.y),
 
-        toNdcX(p2.x), toNdcY(p2.y),
-        toNdcX(p3.x), toNdcY(p3.y),
+            toNdcX(p2.x), toNdcY(p2.y),
+            toNdcX(p3.x), toNdcY(p3.y),
 
-        toNdcX(p3.x), toNdcY(p3.y),
-        toNdcX(p4.x), toNdcY(p4.y),
+            toNdcX(p3.x), toNdcY(p3.y),
+            toNdcX(p4.x), toNdcY(p4.y),
 
-        toNdcX(p4.x), toNdcY(p4.y),
-        toNdcX(p1.x), toNdcY(p1.y),
+            toNdcX(p4.x), toNdcY(p4.y),
+            toNdcX(p1.x), toNdcY(p1.y),
 
-        toNdcX(p1.x), toNdcY(p1.y),
-        toNdcX(p3.x), toNdcY(p3.y),
+            toNdcX(p1.x), toNdcY(p1.y),
+            toNdcX(p3.x), toNdcY(p3.y),
 
-        toNdcX(p2.x), toNdcY(p2.y),
-        toNdcX(p4.x), toNdcY(p4.y)
-    };
+            toNdcX(p2.x), toNdcY(p2.y),
+            toNdcX(p4.x), toNdcY(p4.y)};
 
     m_lineMesh.update(vertices);
 
@@ -202,4 +211,272 @@ void RendererGL::drawProjectedRectangle(
         1.0f);
 
     m_lineMesh.draw();
+}
+void RendererGL::appendProjectedArc(
+    std::vector<float> &vertices,
+    const Court::Arc &arc,
+    const Homography &homography)
+{
+    constexpr int Segments = 64;
+
+    for (int i = 0; i < Segments; ++i)
+    {
+        const float t1 =
+            static_cast<float>(i) / Segments;
+
+        const float t2 =
+            static_cast<float>(i + 1) / Segments;
+
+        const float a1 =
+            arc.startRadians +
+            (arc.endRadians - arc.startRadians) * t1;
+
+        const float a2 =
+            arc.startRadians +
+            (arc.endRadians - arc.startRadians) * t2;
+
+        Court::Point p1{
+            arc.center.x + std::cos(a1) * arc.radius,
+            arc.center.y + std::sin(a1) * arc.radius};
+
+        Court::Point p2{
+            arc.center.x + std::cos(a2) * arc.radius,
+            arc.center.y + std::sin(a2) * arc.radius};
+
+        cv::Point2f i1 =
+            homography.courtToImage({p1.x, p1.y});
+
+        cv::Point2f i2 =
+            homography.courtToImage({p2.x, p2.y});
+
+        vertices.push_back(toNdcX(i1.x));
+        vertices.push_back(toNdcY(i1.y));
+
+        vertices.push_back(toNdcX(i2.x));
+        vertices.push_back(toNdcY(i2.y));
+    }
+}
+void RendererGL::drawProjectedCourt(
+    const Court &,
+    const Homography &)
+{
+    std::vector<float> vertices =
+        {
+            -0.5f, -0.5f,
+            0.5f, -0.5f,
+
+            0.5f, -0.5f,
+            0.5f, 0.5f,
+
+            0.5f, 0.5f,
+            -0.5f, 0.5f,
+
+            -0.5f, 0.5f,
+            -0.5f, -0.5f};
+
+    m_lineMesh.update(vertices);
+
+    m_colorShader.use();
+
+    m_colorShader.setVec4(
+        "uColor",
+        0.0f,
+        1.0f,
+        0.0f,
+        1.0f);
+
+    GLenum err = glGetError();
+
+    std::cout << "Avant draw : " << err << std::endl;
+
+    m_lineMesh.draw(GL_LINES);
+
+    err = glGetError();
+
+    std::cout << "Après draw : " << err << std::endl;
+    m_lineMesh.draw(GL_LINES);
+}
+void RendererGL::drawTestTriangle()
+{
+    std::cout << "drawTestTriangle: entered\n";
+
+    static GLuint vao = 0;
+    static GLuint vbo = 0;
+
+    if (vao == 0)
+    {
+        const float vertices[] =
+        {
+             0.0f,  0.7f,
+            -0.6f, -0.6f,
+             0.6f, -0.6f
+        };
+
+        glGenVertexArrays(1, &vao);
+        glGenBuffers(1, &vbo);
+
+        glBindVertexArray(vao);
+
+        glBindBuffer(GL_ARRAY_BUFFER, vbo);
+
+        glBufferData(
+            GL_ARRAY_BUFFER,
+            sizeof(vertices),
+            vertices,
+            GL_STATIC_DRAW);
+
+        glVertexAttribPointer(
+            0,
+            2,
+            GL_FLOAT,
+            GL_FALSE,
+            2 * sizeof(float),
+            nullptr);
+
+        glEnableVertexAttribArray(0);
+
+        glBindVertexArray(0);
+    }
+
+    m_colorShader.use();
+
+    GLint currentProgram = 0;
+    GLint linked = GL_FALSE;
+    GLint validated = GL_FALSE;
+
+    glValidateProgram(m_colorShader.program());
+    glGetIntegerv(GL_CURRENT_PROGRAM, &currentProgram);
+    glGetProgramiv(m_colorShader.program(), GL_LINK_STATUS, &linked);
+    glGetProgramiv(m_colorShader.program(), GL_VALIDATE_STATUS, &validated);
+
+    std::cout << "shader: expected=" << m_colorShader.program()
+              << " current=" << currentProgram
+              << " linked=" << linked
+              << " validated=" << validated
+              << '\n';
+
+    m_colorShader.setVec4(
+        "uColor",
+        1.0f,
+        1.0f,
+        1.0f,
+        1.0f);
+
+    glBindVertexArray(vao);
+
+    GLint boundVao = 0;
+    GLint boundVbo = 0;
+    GLint vboSize = 0;
+    GLint attributeEnabled = GL_FALSE;
+    GLint attributeSize = 0;
+    GLint attributeType = 0;
+    GLint attributeNormalized = GL_FALSE;
+    GLint attributeStride = 0;
+    GLint attributeBuffer = 0;
+    void *attributePointer = nullptr;
+    std::array<float, 6> uploadedVertices{};
+    std::array<GLint, 4> viewport{};
+    GLint drawFramebuffer = 0;
+    GLint readFramebuffer = 0;
+    GLint blendSource = 0;
+    GLint blendDestination = 0;
+    GLboolean colorMask[4]{};
+    GLboolean depthMask = GL_FALSE;
+
+    glGetIntegerv(GL_VERTEX_ARRAY_BINDING, &boundVao);
+    glBindBuffer(GL_ARRAY_BUFFER, vbo);
+    glGetIntegerv(GL_ARRAY_BUFFER_BINDING, &boundVbo);
+    glGetBufferParameteriv(GL_ARRAY_BUFFER, GL_BUFFER_SIZE, &vboSize);
+    glGetBufferSubData(
+        GL_ARRAY_BUFFER,
+        0,
+        sizeof(uploadedVertices),
+        uploadedVertices.data());
+    glGetVertexAttribiv(0, GL_VERTEX_ATTRIB_ARRAY_ENABLED, &attributeEnabled);
+    glGetVertexAttribiv(0, GL_VERTEX_ATTRIB_ARRAY_SIZE, &attributeSize);
+    glGetVertexAttribiv(0, GL_VERTEX_ATTRIB_ARRAY_TYPE, &attributeType);
+    glGetVertexAttribiv(0, GL_VERTEX_ATTRIB_ARRAY_NORMALIZED, &attributeNormalized);
+    glGetVertexAttribiv(0, GL_VERTEX_ATTRIB_ARRAY_STRIDE, &attributeStride);
+    glGetVertexAttribiv(0, GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING, &attributeBuffer);
+    glGetVertexAttribPointerv(0, GL_VERTEX_ATTRIB_ARRAY_POINTER, &attributePointer);
+    glGetIntegerv(GL_VIEWPORT, viewport.data());
+    glGetIntegerv(GL_DRAW_FRAMEBUFFER_BINDING, &drawFramebuffer);
+    glGetIntegerv(GL_READ_FRAMEBUFFER_BINDING, &readFramebuffer);
+    glGetIntegerv(GL_BLEND_SRC_RGB, &blendSource);
+    glGetIntegerv(GL_BLEND_DST_RGB, &blendDestination);
+    glGetBooleanv(GL_COLOR_WRITEMASK, colorMask);
+    glGetBooleanv(GL_DEPTH_WRITEMASK, &depthMask);
+
+    std::cout << "vao: expected=" << vao
+              << " bound=" << boundVao
+              << " valid=" << (glIsVertexArray(vao) == GL_TRUE)
+              << '\n';
+    std::cout << "vbo: expected=" << vbo
+              << " bound=" << boundVbo
+              << " valid=" << (glIsBuffer(vbo) == GL_TRUE)
+              << " size=" << vboSize
+              << " vertices=";
+
+    for (float vertex : uploadedVertices)
+        std::cout << ' ' << vertex;
+
+    std::cout << '\n';
+    std::cout << "attribute[0]: enabled=" << attributeEnabled
+              << " size=" << attributeSize
+              << " type=" << attributeType
+              << " normalized=" << attributeNormalized
+              << " stride=" << attributeStride
+              << " buffer=" << attributeBuffer
+              << " pointer=" << attributePointer
+              << '\n';
+    std::cout << "viewport: " << viewport[0] << ',' << viewport[1]
+              << ' ' << viewport[2] << 'x' << viewport[3] << '\n';
+    std::cout << "framebuffer: draw=" << drawFramebuffer
+              << " read=" << readFramebuffer << '\n';
+    printEnabledState("state: cull-face", GL_CULL_FACE);
+    printEnabledState("state: depth-test", GL_DEPTH_TEST);
+    printEnabledState("state: scissor-test", GL_SCISSOR_TEST);
+    printEnabledState("state: blend", GL_BLEND);
+    std::cout << "state: blend-src=" << blendSource
+              << " blend-dst=" << blendDestination
+              << " color-mask=" << colorMask[0] << colorMask[1]
+              << colorMask[2] << colorMask[3]
+              << " depth-mask=" << depthMask
+              << '\n';
+
+    while (glGetError() != GL_NO_ERROR)
+    {
+    }
+
+    std::cout << "glDrawArrays: mode=" << GL_TRIANGLES
+              << " first=0 count=3\n";
+
+    glDrawArrays(
+        GL_TRIANGLES,
+        0,
+        3);
+
+    const GLenum drawError = glGetError();
+    std::array<GLubyte, 4> centerPixel{};
+
+    glReadPixels(
+        viewport[2] / 2,
+        viewport[3] / 2,
+        1,
+        1,
+        GL_RGBA,
+        GL_UNSIGNED_BYTE,
+        centerPixel.data());
+
+    const GLenum readError = glGetError();
+
+    std::cout << "glDrawArrays: error=" << drawError << '\n';
+    std::cout << "framebuffer center pixel: "
+              << static_cast<int>(centerPixel[0]) << ','
+              << static_cast<int>(centerPixel[1]) << ','
+              << static_cast<int>(centerPixel[2]) << ','
+              << static_cast<int>(centerPixel[3])
+              << " read-error=" << readError << '\n';
+
+    glBindVertexArray(0);
 }
