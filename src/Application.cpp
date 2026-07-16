@@ -312,12 +312,12 @@ void Application::run()
             m_court,
             m_homography);
 
-        // m_rendererGL.drawProjectedRectangle(
-        //     10.0f,
-        //     6.0f,
-        //     4.0f,
-        //     2.0f,
-        //     m_homography);
+         m_rendererGL.drawProjectedRectangle(
+             10.0f,
+             6.0f,
+             4.0f,
+             2.0f,
+             m_homography);
 
         std::cout << "context before present: expected="
                   << m_window.glContext()

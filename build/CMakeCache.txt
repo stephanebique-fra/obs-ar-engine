@@ -252,9 +252,6 @@ OpenGL_LIBRARY:FILEPATH=/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/Syst
 //The directory containing a CMake configuration file for SDL3.
 SDL3_DIR:PATH=/opt/homebrew/lib/cmake/SDL3
 
-//The directory containing a CMake configuration file for SDL3_ttf.
-SDL3_ttf_DIR:PATH=/opt/homebrew/lib/cmake/SDL3_ttf
-
 
 ########################
 # INTERNAL cache entries

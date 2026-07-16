@@ -49,6 +49,8 @@ private:
     Mesh m_mesh;
     TextureGL m_texture;
     LineMesh m_lineMesh;
+    float m_viewportWidth = 1280.0f;
+    float m_viewportHeight = 720.0f;
     void appendProjectedArc(
         std::vector<float> &vertices,
         const Court::Arc &arc,

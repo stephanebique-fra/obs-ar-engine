@@ -95,6 +95,8 @@ void RendererGL::destroy()
 
 void RendererGL::beginFrame(int width, int height)
 {
+    m_viewportWidth = static_cast<float>(width);
+    m_viewportHeight = static_cast<float>(height);
     glViewport(0, 0, width, height);
 
     glClearColor(
@@ -150,12 +152,12 @@ void RendererGL::drawBackground(const ImageFrame &frame)
 }
 float RendererGL::toNdcX(float x) const
 {
-    return (2.0f * x / 1280.0f) - 1.0f;
+    return (2.0f * x / m_viewportWidth) - 1.0f;
 }
 
 float RendererGL::toNdcY(float y) const
 {
-    return 1.0f - (2.0f * y / 720.0f);
+    return 1.0f - (2.0f * y / m_viewportHeight);
 }
 void RendererGL::drawProjectedRectangle(
     float x,
@@ -257,22 +259,38 @@ void RendererGL::appendProjectedArc(
     }
 }
 void RendererGL::drawProjectedCourt(
-    const Court &,
-    const Homography &)
+    const Court &court,
+    const Homography &homography)
 {
-    std::vector<float> vertices =
-        {
-            -0.5f, -0.5f,
-            0.5f, -0.5f,
+    if (!homography.isValid())
+        return;
 
-            0.5f, -0.5f,
-            0.5f, 0.5f,
+    std::vector<float> vertices;
 
-            0.5f, 0.5f,
-            -0.5f, 0.5f,
+    for (const Court::Line &line : court.lines())
+    {
+        const cv::Point2f start =
+            homography.courtToImage({line.start.x, line.start.y});
 
-            -0.5f, 0.5f,
-            -0.5f, -0.5f};
+        const cv::Point2f end =
+            homography.courtToImage({line.end.x, line.end.y});
+
+        vertices.push_back(toNdcX(start.x));
+        vertices.push_back(toNdcY(start.y));
+        vertices.push_back(toNdcX(end.x));
+        vertices.push_back(toNdcY(end.y));
+    }
+
+    for (const Court::Circle &circle : court.circles())
+    {
+        appendProjectedArc(
+            vertices,
+            {circle.center, circle.radius, 0.0f, 6.28318530717958647692f},
+            homography);
+    }
+
+    for (const Court::Arc &arc : court.arcs())
+        appendProjectedArc(vertices, arc, homography);
 
     m_lineMesh.update(vertices);
 
@@ -285,15 +303,6 @@ void RendererGL::drawProjectedCourt(
         0.0f,
         1.0f);
 
-    GLenum err = glGetError();
-
-    std::cout << "Avant draw : " << err << std::endl;
-
-    m_lineMesh.draw(GL_LINES);
-
-    err = glGetError();
-
-    std::cout << "Après draw : " << err << std::endl;
     m_lineMesh.draw(GL_LINES);
 }
 void RendererGL::drawTestTriangle()
