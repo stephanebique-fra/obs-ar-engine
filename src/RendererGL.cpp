@@ -159,6 +159,13 @@ float RendererGL::toNdcY(float y) const
 {
     return 1.0f - (2.0f * y / m_viewportHeight);
 }
+cv::Point2f RendererGL::projectToNdc(
+    const cv::Point2f &imagePoint) const
+{
+    return {
+        toNdcX(imagePoint.x),
+        toNdcY(imagePoint.y)};
+}
 void RendererGL::drawProjectedRectangle(
     float x,
     float y,
@@ -181,25 +188,30 @@ void RendererGL::drawProjectedRectangle(
     const cv::Point2f p4 =
         homography.courtToImage({x, y + height});
 
+    const cv::Point2f n1 = projectToNdc(p1);
+    const cv::Point2f n2 = projectToNdc(p2);
+    const cv::Point2f n3 = projectToNdc(p3);
+    const cv::Point2f n4 = projectToNdc(p4);
+
     std::vector<float> vertices =
         {
-            toNdcX(p1.x), toNdcY(p1.y),
-            toNdcX(p2.x), toNdcY(p2.y),
+            n1.x, n1.y,
+            n2.x, n2.y,
 
-            toNdcX(p2.x), toNdcY(p2.y),
-            toNdcX(p3.x), toNdcY(p3.y),
+            n2.x, n2.y,
+            n3.x, n3.y,
 
-            toNdcX(p3.x), toNdcY(p3.y),
-            toNdcX(p4.x), toNdcY(p4.y),
+            n3.x, n3.y,
+            n4.x, n4.y,
 
-            toNdcX(p4.x), toNdcY(p4.y),
-            toNdcX(p1.x), toNdcY(p1.y),
+            n4.x, n4.y,
+            n1.x, n1.y,
 
-            toNdcX(p1.x), toNdcY(p1.y),
-            toNdcX(p3.x), toNdcY(p3.y),
+            n1.x, n1.y,
+            n3.x, n3.y,
 
-            toNdcX(p2.x), toNdcY(p2.y),
-            toNdcX(p4.x), toNdcY(p4.y)};
+            n2.x, n2.y,
+            n4.x, n4.y};
 
     m_lineMesh.update(vertices);
 
@@ -251,11 +263,14 @@ void RendererGL::appendProjectedArc(
         cv::Point2f i2 =
             homography.courtToImage({p2.x, p2.y});
 
-        vertices.push_back(toNdcX(i1.x));
-        vertices.push_back(toNdcY(i1.y));
+        const auto n1 = projectToNdc(i1);
+        const auto n2 = projectToNdc(i2);
 
-        vertices.push_back(toNdcX(i2.x));
-        vertices.push_back(toNdcY(i2.y));
+        vertices.push_back(n1.x);
+        vertices.push_back(n1.y);
+
+        vertices.push_back(n2.x);
+        vertices.push_back(n2.y);
     }
 }
 void RendererGL::drawProjectedCourt(
@@ -275,10 +290,13 @@ void RendererGL::drawProjectedCourt(
         const cv::Point2f end =
             homography.courtToImage({line.end.x, line.end.y});
 
-        vertices.push_back(toNdcX(start.x));
-        vertices.push_back(toNdcY(start.y));
-        vertices.push_back(toNdcX(end.x));
-        vertices.push_back(toNdcY(end.y));
+        const auto startNdc = projectToNdc(start);
+        const auto endNdc = projectToNdc(end);
+
+        vertices.push_back(startNdc.x);
+        vertices.push_back(startNdc.y);
+        vertices.push_back(endNdc.x);
+        vertices.push_back(endNdc.y);
     }
 
     for (const Court::Circle &circle : court.circles())
@@ -315,11 +333,10 @@ void RendererGL::drawTestTriangle()
     if (vao == 0)
     {
         const float vertices[] =
-        {
-             0.0f,  0.7f,
-            -0.6f, -0.6f,
-             0.6f, -0.6f
-        };
+            {
+                0.0f, 0.7f,
+                -0.6f, -0.6f,
+                0.6f, -0.6f};
 
         glGenVertexArrays(1, &vao);
         glGenBuffers(1, &vbo);

@@ -33,8 +33,8 @@ public:
         float height,
         const Homography &homography);
     void drawProjectedCourt(
-    const Court& court,
-    const Homography& homography);
+        const Court &court,
+        const Homography &homography);
     void drawTestTriangle();
 
 private:
@@ -57,4 +57,6 @@ private:
         const Homography &homography);
     float toNdcX(float x) const;
     float toNdcY(float y) const;
+    cv::Point2f projectToNdc(
+        const cv::Point2f &imagePoint) const;
 };

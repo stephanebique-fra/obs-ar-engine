@@ -31,6 +31,7 @@ add_executable(obs-ar-engine
     src/Mesh.cpp
     src/TextureGL.cpp
     src/LineMesh.cpp
+    src/Projector.cpp
 )
 
 target_include_directories(obs-ar-engine PRIVATE

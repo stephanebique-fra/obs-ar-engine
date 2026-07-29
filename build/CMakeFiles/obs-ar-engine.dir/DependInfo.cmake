@@ -17,6 +17,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/src/Homography.cpp" "CMakeFiles/obs-ar-engine.dir/src/Homography.cpp.o" "gcc" "CMakeFiles/obs-ar-engine.dir/src/Homography.cpp.o.d"
   "/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/src/LineMesh.cpp" "CMakeFiles/obs-ar-engine.dir/src/LineMesh.cpp.o" "gcc" "CMakeFiles/obs-ar-engine.dir/src/LineMesh.cpp.o.d"
   "/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/src/Mesh.cpp" "CMakeFiles/obs-ar-engine.dir/src/Mesh.cpp.o" "gcc" "CMakeFiles/obs-ar-engine.dir/src/Mesh.cpp.o.d"
+  "/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/src/Projector.cpp" "CMakeFiles/obs-ar-engine.dir/src/Projector.cpp.o" "gcc" "CMakeFiles/obs-ar-engine.dir/src/Projector.cpp.o.d"
   "/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/src/RendererGL.cpp" "CMakeFiles/obs-ar-engine.dir/src/RendererGL.cpp.o" "gcc" "CMakeFiles/obs-ar-engine.dir/src/RendererGL.cpp.o.d"
   "/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/src/Shader.cpp" "CMakeFiles/obs-ar-engine.dir/src/Shader.cpp.o" "gcc" "CMakeFiles/obs-ar-engine.dir/src/Shader.cpp.o.d"
   "/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/src/TextureGL.cpp" "CMakeFiles/obs-ar-engine.dir/src/TextureGL.cpp.o" "gcc" "CMakeFiles/obs-ar-engine.dir/src/TextureGL.cpp.o.d"

@@ -321,6 +321,30 @@ src/Mesh.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Mesh.cpp.s
 .PHONY : src/Mesh.cpp.s
 
+src/Projector.o: src/Projector.cpp.o
+.PHONY : src/Projector.o
+
+# target to build an object file
+src/Projector.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Projector.cpp.o
+.PHONY : src/Projector.cpp.o
+
+src/Projector.i: src/Projector.cpp.i
+.PHONY : src/Projector.i
+
+# target to preprocess a source file
+src/Projector.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Projector.cpp.i
+.PHONY : src/Projector.cpp.i
+
+src/Projector.s: src/Projector.cpp.s
+.PHONY : src/Projector.s
+
+# target to generate assembly for a file
+src/Projector.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obs-ar-engine.dir/build.make CMakeFiles/obs-ar-engine.dir/src/Projector.cpp.s
+.PHONY : src/Projector.cpp.s
+
 src/RendererGL.o: src/RendererGL.cpp.o
 .PHONY : src/RendererGL.o
 
@@ -546,6 +570,9 @@ help:
 	@echo "... src/Mesh.o"
 	@echo "... src/Mesh.i"
 	@echo "... src/Mesh.s"
+	@echo "... src/Projector.o"
+	@echo "... src/Projector.i"
+	@echo "... src/Projector.s"
 	@echo "... src/RendererGL.o"
 	@echo "... src/RendererGL.i"
 	@echo "... src/RendererGL.s"

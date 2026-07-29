@@ -15,6 +15,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/obs-ar-engine.dir/src/LineMesh.cpp.o.d"
   "CMakeFiles/obs-ar-engine.dir/src/Mesh.cpp.o"
   "CMakeFiles/obs-ar-engine.dir/src/Mesh.cpp.o.d"
+  "CMakeFiles/obs-ar-engine.dir/src/Projector.cpp.o"
+  "CMakeFiles/obs-ar-engine.dir/src/Projector.cpp.o.d"
   "CMakeFiles/obs-ar-engine.dir/src/RendererGL.cpp.o"
   "CMakeFiles/obs-ar-engine.dir/src/RendererGL.cpp.o.d"
   "CMakeFiles/obs-ar-engine.dir/src/Shader.cpp.o"
