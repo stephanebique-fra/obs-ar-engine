@@ -308,6 +308,8 @@ void Application::run()
 
         m_rendererGL.drawBackground(m_videoSource.frame());
 
+        // m_rendererGL.drawProjectedMeshTest();
+
         std::cout
             << "Homography valid = "
             << m_homography.isValid()
@@ -328,6 +330,13 @@ void Application::run()
             m_homography);
 
         m_rendererGL.drawProjectedRectangle(
+            10.0f,
+            6.0f,
+            4.0f,
+            2.0f,
+            m_homography);
+
+        m_rendererGL.drawProjectedTexture(
             10.0f,
             6.0f,
             4.0f,

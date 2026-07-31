@@ -76,7 +76,10 @@ bool RendererGL::initialize()
     m_shader.use();
     m_shader.setInt("uTexture", 0);
 
-    if (!m_mesh.createQuad())
+    if (!m_screenMesh.createQuad())
+        return false;
+
+    if (!m_projectedMesh.createQuad())
         return false;
 
     if (!m_lineMesh.initialize())
@@ -89,8 +92,13 @@ bool RendererGL::initialize()
 void RendererGL::destroy()
 {
     m_texture.destroy();
+
+    m_backgroundTexture.destroy();
+
+    m_screenMesh.destroy();
+    m_projectedMesh.destroy();
+
     m_lineMesh.destroy();
-    m_mesh.destroy();
 }
 
 void RendererGL::beginFrame(int width, int height)
@@ -120,7 +128,7 @@ void RendererGL::drawQuad()
 
     m_texture.bind(0);
 
-    m_mesh.draw();
+    m_screenMesh.draw();
 }
 void RendererGL::drawTexture(const TextureGL &texture)
 {
@@ -128,7 +136,51 @@ void RendererGL::drawTexture(const TextureGL &texture)
 
     texture.bind(0);
 
-    m_mesh.draw();
+    m_screenMesh.draw();
+}
+
+void RendererGL::drawProjectedTexture(
+    float x,
+    float y,
+    float width,
+    float height,
+    const Homography& homography)
+{
+    if (!homography.isValid())
+        return;
+
+    const auto quad =
+        buildProjectedQuad(
+            x,
+            y,
+            width,
+            height,
+            homography);
+
+    m_projectedMesh.updateVertices(quad);
+
+    m_shader.use();
+
+    m_texture.bind(0);
+
+    m_projectedMesh.draw();
+}
+
+void RendererGL::drawProjectedMeshTest()
+{
+    std::array<Vertex, 4> quad =
+        {{{-0.7f, 0.5f, 0.0f, 0.0f, 0.0f},
+          {-0.1f, 0.5f, 0.0f, 1.0f, 0.0f},
+          {-0.1f, -0.1f, 0.0f, 1.0f, 1.0f},
+          {-0.7f, -0.1f, 0.0f, 0.0f, 1.0f}}};
+
+    m_projectedMesh.updateVertices(quad);
+
+    m_shader.use();
+
+    m_texture.bind(0);
+
+    m_projectedMesh.draw();
 }
 void RendererGL::drawBackground(const ImageFrame &frame)
 {
@@ -166,16 +218,14 @@ cv::Point2f RendererGL::projectToNdc(
         toNdcX(imagePoint.x),
         toNdcY(imagePoint.y)};
 }
-void RendererGL::drawProjectedRectangle(
+
+std::array<Vertex, 4> RendererGL::buildProjectedQuad(
     float x,
     float y,
     float width,
     float height,
-    const Homography &homography)
+    const Homography &homography) const
 {
-    if (!homography.isValid())
-        return;
-
     const cv::Point2f p1 =
         homography.courtToImage({x, y});
 
@@ -188,30 +238,54 @@ void RendererGL::drawProjectedRectangle(
     const cv::Point2f p4 =
         homography.courtToImage({x, y + height});
 
-    const cv::Point2f n1 = projectToNdc(p1);
-    const cv::Point2f n2 = projectToNdc(p2);
-    const cv::Point2f n3 = projectToNdc(p3);
-    const cv::Point2f n4 = projectToNdc(p4);
+    const auto n1 = projectToNdc(p1);
+    const auto n2 = projectToNdc(p2);
+    const auto n3 = projectToNdc(p3);
+    const auto n4 = projectToNdc(p4);
+
+    return {{{n1.x, n1.y, 0.0f, 0.0f, 0.0f},
+             {n2.x, n2.y, 0.0f, 1.0f, 0.0f},
+             {n3.x, n3.y, 0.0f, 1.0f, 1.0f},
+             {n4.x, n4.y, 0.0f, 0.0f, 1.0f}}};
+}
+
+void RendererGL::drawProjectedRectangle(
+    float x,
+    float y,
+    float width,
+    float height,
+    const Homography &homography)
+{
+    if (!homography.isValid())
+        return;
+
+    const auto quad =
+        buildProjectedQuad(
+            x,
+            y,
+            width,
+            height,
+            homography);
 
     std::vector<float> vertices =
         {
-            n1.x, n1.y,
-            n2.x, n2.y,
+            quad[0].x, quad[0].y,
+            quad[1].x, quad[1].y,
 
-            n2.x, n2.y,
-            n3.x, n3.y,
+            quad[1].x, quad[1].y,
+            quad[2].x, quad[2].y,
 
-            n3.x, n3.y,
-            n4.x, n4.y,
+            quad[2].x, quad[2].y,
+            quad[3].x, quad[3].y,
 
-            n4.x, n4.y,
-            n1.x, n1.y,
+            quad[3].x, quad[3].y,
+            quad[0].x, quad[0].y,
 
-            n1.x, n1.y,
-            n3.x, n3.y,
+            quad[0].x, quad[0].y,
+            quad[2].x, quad[2].y,
 
-            n2.x, n2.y,
-            n4.x, n4.y};
+            quad[1].x, quad[1].y,
+            quad[3].x, quad[3].y};
 
     m_lineMesh.update(vertices);
 

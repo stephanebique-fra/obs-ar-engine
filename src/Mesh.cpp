@@ -74,7 +74,30 @@ bool Mesh::createQuad()
 
     return true;
 }
+void Mesh::updateVertices(const float vertices[20])
+{
+    glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
 
+    glBufferSubData(
+        GL_ARRAY_BUFFER,
+        0,
+        20 * sizeof(float),
+        vertices);
+
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+}
+void Mesh::updateVertices(const std::array<Vertex, 4>& vertices)
+{
+    glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
+
+    glBufferSubData(
+        GL_ARRAY_BUFFER,
+        0,
+        sizeof(Vertex) * vertices.size(),
+        vertices.data());
+
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+}
 void Mesh::destroy()
 {
     if (m_ebo)

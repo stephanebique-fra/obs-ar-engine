@@ -32,10 +32,17 @@ public:
         float width,
         float height,
         const Homography &homography);
+    void drawProjectedTexture(
+        float x,
+        float y,
+        float width,
+        float height,
+        const Homography &homography);
     void drawProjectedCourt(
         const Court &court,
         const Homography &homography);
     void drawTestTriangle();
+    void drawProjectedMeshTest();
 
 private:
     bool createTriangle();
@@ -46,7 +53,8 @@ private:
 private:
     Shader m_shader;
     Shader m_colorShader;
-    Mesh m_mesh;
+    Mesh m_screenMesh;
+    Mesh m_projectedMesh;
     TextureGL m_texture;
     LineMesh m_lineMesh;
     float m_viewportWidth = 1280.0f;
@@ -57,6 +65,12 @@ private:
         const Homography &homography);
     float toNdcX(float x) const;
     float toNdcY(float y) const;
+    std::array<Vertex, 4> buildProjectedQuad(
+        float x,
+        float y,
+        float width,
+        float height,
+        const Homography &homography) const;
     cv::Point2f projectToNdc(
         const cv::Point2f &imagePoint) const;
 };

@@ -1,6 +1,17 @@
 #pragma once
 
+#include <array>
 #include <glad/gl.h>
+
+struct Vertex
+{
+    float x;
+    float y;
+    float z;
+
+    float u;
+    float v;
+};
 
 class Mesh
 {
@@ -9,6 +20,11 @@ public:
     ~Mesh();
 
     bool createQuad();
+
+    void updateVertices(const float vertices[20]);
+
+    void updateVertices(const std::array<Vertex, 4>& vertices);
+
     void destroy();
 
     void draw() const;
