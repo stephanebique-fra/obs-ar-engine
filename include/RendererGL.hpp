@@ -42,7 +42,6 @@ public:
         const Court &court,
         const Homography &homography);
     void drawTestTriangle();
-    void drawProjectedMeshTest();
 
 private:
     bool createTriangle();

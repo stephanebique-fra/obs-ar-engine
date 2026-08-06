@@ -166,22 +166,6 @@ void RendererGL::drawProjectedTexture(
     m_projectedMesh.draw();
 }
 
-void RendererGL::drawProjectedMeshTest()
-{
-    std::array<Vertex, 4> quad =
-        {{{-0.7f, 0.5f, 0.0f, 0.0f, 0.0f},
-          {-0.1f, 0.5f, 0.0f, 1.0f, 0.0f},
-          {-0.1f, -0.1f, 0.0f, 1.0f, 1.0f},
-          {-0.7f, -0.1f, 0.0f, 0.0f, 1.0f}}};
-
-    m_projectedMesh.updateVertices(quad);
-
-    m_shader.use();
-
-    m_texture.bind(0);
-
-    m_projectedMesh.draw();
-}
 void RendererGL::drawBackground(const ImageFrame &frame)
 {
     if (!frame.isValid())

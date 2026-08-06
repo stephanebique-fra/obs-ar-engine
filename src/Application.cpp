@@ -57,7 +57,21 @@ bool Application::initialize()
 
         m_calibration.save("calibration.txt");
     }
+    m_scene.advertisements().push_back({
+        10.0f,
+        6.0f,
+        4.0f,
+        2.0f,
+        true
+    });
 
+    m_scene.advertisements().push_back({
+        3.0f,
+        2.0f,
+        2.5f,
+        1.2f,
+        true
+    });
     return true;
 }
 
@@ -308,8 +322,6 @@ void Application::run()
 
         m_rendererGL.drawBackground(m_videoSource.frame());
 
-        // m_rendererGL.drawProjectedMeshTest();
-
         std::cout
             << "Homography valid = "
             << m_homography.isValid()
@@ -333,15 +345,18 @@ void Application::run()
             10.0f,
             6.0f,
             4.0f,
-            2.0f,
+            4.0f,
             m_homography);
 
-        m_rendererGL.drawProjectedTexture(
-            10.0f,
-            6.0f,
-            4.0f,
-            2.0f,
-            m_homography);
+        for (const Advertisement &ad : m_scene.advertisements())
+        {
+            m_rendererGL.drawProjectedTexture(
+                ad.x,
+                ad.y,
+                ad.width,
+                ad.height,
+                m_homography);
+        }
 
         std::cout << "context before present: expected="
                   << m_window.glContext()

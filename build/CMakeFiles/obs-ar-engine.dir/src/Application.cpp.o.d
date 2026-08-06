@@ -1099,5 +1099,7 @@ CMakeFiles/obs-ar-engine.dir/src/Application.cpp.o: \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/TextureGL.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/graphics/Image.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/LineMesh.hpp \
+  /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/Scene.hpp \
+  /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/Advertisement.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/FibaCourt.hpp

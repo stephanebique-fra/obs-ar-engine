@@ -997,6 +997,7 @@ CMakeFiles/obs-ar-engine.dir/src/Application.cpp.o: /Users/newstph/Library/Cloud
   /Library/Developer/CommandLineTools/usr/lib/clang/21/include/stdarg.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/21/include/stddef.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/21/include/stdint.h \
+  /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/Advertisement.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/Application.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/Calibration.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/CalibrationPoint.hpp \
@@ -1009,6 +1010,7 @@ CMakeFiles/obs-ar-engine.dir/src/Application.cpp.o: /Users/newstph/Library/Cloud
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/LineMesh.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/Mesh.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/RendererGL.hpp \
+  /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/Scene.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/Shader.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/TextureGL.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/VideoSource.hpp \
@@ -14732,6 +14734,7 @@ CMakeFiles/obs-ar-engine.dir/src/main.cpp.o: /Users/newstph/Library/CloudStorage
   /Library/Developer/CommandLineTools/usr/lib/clang/21/include/stdarg.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/21/include/stddef.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/21/include/stdint.h \
+  /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/Advertisement.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/Application.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/Calibration.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/CalibrationPoint.hpp \
@@ -14743,6 +14746,7 @@ CMakeFiles/obs-ar-engine.dir/src/main.cpp.o: /Users/newstph/Library/CloudStorage
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/LineMesh.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/Mesh.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/RendererGL.hpp \
+  /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/Scene.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/Shader.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/TextureGL.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/VideoSource.hpp \
@@ -15079,6 +15083,8 @@ CMakeFiles/obs-ar-engine.dir/third_party/glad/src/gl.c.o: /Users/newstph/Library
 
 /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/Shader.hpp:
 
+/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/Scene.hpp:
+
 /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/LineMesh.hpp:
 
 /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/ImageFrame.hpp:
@@ -15264,6 +15270,8 @@ CMakeFiles/obs-ar-engine.dir/third_party/glad/src/gl.c.o: /Users/newstph/Library
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/string.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/stdlib.h:
+
+/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/Advertisement.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/runetype.h:
 

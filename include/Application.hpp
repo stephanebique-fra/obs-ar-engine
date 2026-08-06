@@ -8,6 +8,7 @@
 #include <cstddef>
 #include "Homography.hpp"
 #include "RendererGL.hpp"
+#include "Scene.hpp"
 
 class Application
 {
@@ -28,4 +29,5 @@ private:
     bool m_editCalibration = false;
     Homography m_homography;
     RendererGL m_rendererGL;
+    Scene m_scene;
 };

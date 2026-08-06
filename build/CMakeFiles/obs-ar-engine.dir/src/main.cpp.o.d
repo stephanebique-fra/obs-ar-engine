@@ -1098,4 +1098,6 @@ CMakeFiles/obs-ar-engine.dir/src/main.cpp.o: \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/third_party/glad/include/KHR/khrplatform.h \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/TextureGL.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/graphics/Image.hpp \
-  /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/LineMesh.hpp
+  /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/LineMesh.hpp \
+  /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/Scene.hpp \
+  /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/Advertisement.hpp
