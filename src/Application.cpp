@@ -3,6 +3,7 @@
 #include <opencv2/core.hpp>
 #include <iostream>
 #include "FibaCourt.hpp"
+#include "ProjectedQuad.hpp"
 
 namespace
 {
@@ -57,23 +58,19 @@ bool Application::initialize()
 
         m_calibration.save("calibration.txt");
     }
-    m_scene.advertisements().push_back({
-        10.0f,
-        6.0f,
-        4.0f,
-        2.0f,
-        0,
-        true
-    });
+    m_scene.advertisements().push_back({10.0f,
+                                        6.0f,
+                                        4.0f,
+                                        2.0f,
+                                        0,
+                                        true});
 
-    m_scene.advertisements().push_back({
-        3.0f,
-        2.0f,
-        2.5f,
-        1.2f,
-        0,
-        true
-    });
+    m_scene.advertisements().push_back({3.0f,
+                                        2.0f,
+                                        2.5f,
+                                        1.2f,
+                                        0,
+                                        true});
     return true;
 }
 
@@ -352,6 +349,9 @@ void Application::run()
 
         for (const Advertisement &ad : m_scene.advertisements())
         {
+            if (!ad.visible)
+                continue;
+
             m_rendererGL.drawProjectedTexture(
                 ad.x,
                 ad.y,

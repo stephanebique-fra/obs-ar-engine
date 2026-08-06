@@ -1099,6 +1099,7 @@ CMakeFiles/obs-ar-engine.dir/src/main.cpp.o: \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/TextureGL.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/graphics/Image.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/LineMesh.hpp \
+  /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/ProjectedQuad.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/Scene.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/Advertisement.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/Transform2D.hpp

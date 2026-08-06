@@ -8,6 +8,7 @@
 #include "LineMesh.hpp"
 #include "Court.hpp"
 #include <vector>
+#include "ProjectedQuad.hpp"
 
 #include <glad/gl.h>
 
@@ -32,6 +33,10 @@ public:
         float width,
         float height,
         const Homography &homography);
+    void drawProjectedQuad(
+        const ProjectedQuad &quad,
+        const Homography &homography);
+
     void drawProjectedTexture(
         float x,
         float y,

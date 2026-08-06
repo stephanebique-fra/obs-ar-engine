@@ -144,24 +144,43 @@ void RendererGL::drawProjectedTexture(
     float y,
     float width,
     float height,
-    const Homography& homography)
+    const Homography &homography)
+{
+    ProjectedQuad quad{
+        &m_texture,
+        x,
+        y,
+        width,
+        height};
+
+    drawProjectedQuad(
+        quad,
+        homography);
+}
+
+void RendererGL::drawProjectedQuad(
+    const ProjectedQuad &quad,
+    const Homography &homography)
 {
     if (!homography.isValid())
         return;
 
-    const auto quad =
+    if (quad.texture == nullptr)
+        return;
+
+    const auto vertices =
         buildProjectedQuad(
-            x,
-            y,
-            width,
-            height,
+            quad.x,
+            quad.y,
+            quad.width,
+            quad.height,
             homography);
 
-    m_projectedMesh.updateVertices(quad);
+    m_projectedMesh.updateVertices(vertices);
 
     m_shader.use();
 
-    m_texture.bind(0);
+    quad.texture->bind(0);
 
     m_projectedMesh.draw();
 }

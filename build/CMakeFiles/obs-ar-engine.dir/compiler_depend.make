@@ -1009,10 +1009,12 @@ CMakeFiles/obs-ar-engine.dir/src/Application.cpp.o: /Users/newstph/Library/Cloud
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/ImageFrame.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/LineMesh.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/Mesh.hpp \
+  /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/ProjectedQuad.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/RendererGL.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/Scene.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/Shader.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/TextureGL.hpp \
+  /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/Transform2D.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/VideoSource.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/Window.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/graphics/Image.hpp \
@@ -8743,6 +8745,7 @@ CMakeFiles/obs-ar-engine.dir/src/RendererGL.cpp.o: /Users/newstph/Library/CloudS
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/ImageFrame.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/LineMesh.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/Mesh.hpp \
+  /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/ProjectedQuad.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/RendererGL.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/Shader.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/TextureGL.hpp \
@@ -14745,10 +14748,12 @@ CMakeFiles/obs-ar-engine.dir/src/main.cpp.o: /Users/newstph/Library/CloudStorage
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/ImageFrame.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/LineMesh.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/Mesh.hpp \
+  /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/ProjectedQuad.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/RendererGL.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/Scene.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/Shader.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/TextureGL.hpp \
+  /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/Transform2D.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/VideoSource.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/Window.hpp \
   /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/graphics/Image.hpp \
@@ -15015,8 +15020,6 @@ CMakeFiles/obs-ar-engine.dir/third_party/glad/src/gl.c.o: /Users/newstph/Library
 
 /opt/homebrew/include/SDL3/SDL_locale.h:
 
-/opt/homebrew/include/SDL3/SDL_loadso.h:
-
 /opt/homebrew/include/SDL3/SDL_keycode.h:
 
 /opt/homebrew/include/SDL3/SDL_keyboard.h:
@@ -15084,6 +15087,10 @@ CMakeFiles/obs-ar-engine.dir/third_party/glad/src/gl.c.o: /Users/newstph/Library
 /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/Shader.hpp:
 
 /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/Scene.hpp:
+
+/opt/homebrew/include/SDL3/SDL_loadso.h:
+
+/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/ProjectedQuad.hpp:
 
 /Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/LineMesh.hpp:
 
@@ -17086,6 +17093,8 @@ CMakeFiles/obs-ar-engine.dir/third_party/glad/src/gl.c.o: /Users/newstph/Library
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/maybe_const.h:
 
 /opt/homebrew/Cellar/opencv/4.13.0_15/include/opencv4/opencv2/calib3d.hpp:
+
+/Users/newstph/Library/CloudStorage/Dropbox/obs-ar-engine/include/Transform2D.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_xlocale.h:
 
