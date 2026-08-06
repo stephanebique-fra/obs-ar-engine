@@ -62,6 +62,7 @@ bool Application::initialize()
         6.0f,
         4.0f,
         2.0f,
+        0,
         true
     });
 
@@ -70,6 +71,7 @@ bool Application::initialize()
         2.0f,
         2.5f,
         1.2f,
+        0,
         true
     });
     return true;
